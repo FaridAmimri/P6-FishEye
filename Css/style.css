@@ -1,0 +1,22 @@
+/* profil */
+
+.profil {
+    position: absolute;
+    width: 263px;
+    height: 277px;
+    left: 72px;
+    top: 192px;
+    border: 2px solid #95FFF9;
+    box-sizing: border-box;
+}
+
+/* img */
+
+img {
+    position: absolute;
+    left: -81%;
+    right: -82%;
+    top: -25%;
+    bottom: -54%;
+    background: url(..\Photos\Mimi\Portrait_Nora.jpg);
+}
