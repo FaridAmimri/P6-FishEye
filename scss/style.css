@@ -3,6 +3,137 @@
 /* Desktop */
 /* éléments généraux de la page */
 body {
+  font-family: DM Sans;
   margin: 5%;
+}
+
+/* header */
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: wrap;
+      flex-flow: wrap;
+  color: #901C1C;
+}
+
+header img {
+  width: 30vw;
+}
+
+header a.logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  text-decoration: none;
+  color: #901C1C;
+  width: 100%;
+}
+
+header h1 {
+  font-weight: normal;
+  font-size: large;
+  margin: 0;
+  padding-top: 1%;
+}
+
+header ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: wrap;
+      flex-flow: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  list-style-type: none;
+  margin: 10% 0%;
+  padding: 0;
+}
+
+header li {
+  padding: 1vw 2vw;
+  border: 0.5px solid #C4C4C4;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 11px;
+  margin-right: 1vw;
+  margin-bottom: 1vw;
+  font-size: 0.7rem;
+  font-weight: bold;
+  font-size: small;
+}
+
+/* main */
+main .information {
+  line-height: 0;
+}
+
+main img {
+  height: 200px;
+  width: 200px;
+  border-radius: 100px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+main h2 {
+  text-decoration: none;
+  color: #D3573C;
+  font-weight: 100;
+  font-size: 2rem;
+  margin: 0;
+  padding-top: 1vw;
+}
+
+main p {
+  margin: 3%;
+}
+
+main p.city {
+  color: #901C1C;
+}
+
+main p.price {
+  color: #757575;
+}
+
+main ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: wrap;
+      flex-flow: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  list-style-type: none;
+  margin: 10% 0%;
+  padding: 0;
+}
+
+main li {
+  padding: 1vw 2vw;
+  border: 0.5px solid #C4C4C4;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 11px;
+  margin-right: 1vw;
+  margin-bottom: 1vw;
+  font-size: 0.7rem;
+  font-weight: bold;
+  font-size: small;
+  color: #901C1C;
+}
+
+.photographer {
+  text-align: center;
+}
+
+.photographer a {
+  text-decoration: none;
 }
 /*# sourceMappingURL=style.css.map */
