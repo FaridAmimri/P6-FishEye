@@ -1,8 +1,109 @@
-@import "./scss/media";
-@import "./scss/variable";
-@import "./scss/mixin";
+@import "./media";
+@import "./variable";
+@import "./mixin";
 
 /* éléments généraux de la page */
 body {
+    font-family: DM Sans;
     margin: 5%;
+}
+
+/* header */
+header {
+    display: flex;
+    flex-flow: wrap;
+    color: $primarycolor;
+    
+    img {
+        width: 30vw;
+    }
+    a.logo {
+        display: flex;
+        justify-content: space-between;
+        text-decoration: none;
+        color: $primarycolor;
+        width: 100%;
+    }
+    h1 {
+        font-weight: normal;
+        font-size: large;
+        margin: 0;
+        padding-top: 1%;
+    }
+    ul {
+        display: flex;
+        flex-flow: wrap;
+        justify-content: center;
+        list-style-type: none;
+        margin: 10% 0%;
+        padding: 0;
+    }
+    li {
+        padding: 1vw 2vw;
+        border: 0.5px solid #C4C4C4;
+        box-sizing: border-box;
+        border-radius: 11px;
+        margin-right: 1vw;
+        margin-bottom: 1vw;
+        font-size: 0.7rem;
+        font-weight: bold;
+        font-size: small;
+    }
+}
+
+/* main */
+main {
+    .information {
+        line-height: 0;
+    }
+    img {
+        height: 200px;
+        width: 200px;
+        border-radius: 100px;
+        object-fit: cover;
+    }
+    h2 {
+        text-decoration: none;
+        color: $secondarycolor;
+        font-weight: 100;
+        font-size: 2rem;
+        margin: 0;
+        padding-top: 1vw;
+    }
+    p {
+        margin: 3%;
+    }
+    p.city {
+        color: $primarycolor;
+    }
+    p.price {
+        color: $tertiarycolor;
+    }
+    ul {
+        display: flex;
+        flex-flow: wrap;
+        justify-content: center;
+        list-style-type: none;
+        margin: 10% 0%;
+        padding: 0;
+    }
+    li {
+        padding: 1vw 2vw;
+        border: 0.5px solid #C4C4C4;
+        box-sizing: border-box;
+        border-radius: 11px;
+        margin-right: 1vw;
+        margin-bottom: 1vw;
+        font-size: 0.7rem;
+        font-weight: bold;
+        font-size: small;
+        color : $primarycolor;
+    }
+}
+.photographer {
+    text-align: center;
+    
+    a {
+        text-decoration: none;
+    }
 }
