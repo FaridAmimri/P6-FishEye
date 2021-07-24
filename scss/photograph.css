@@ -1,0 +1,174 @@
+@charset "UTF-8";
+/* Tablet */
+/* Desktop */
+/* mixins body */
+/* mixins du nav */
+/* éléments généraux de la page */
+body {
+  font-family: DM Sans;
+  margin: 45px 20px;
+}
+
+button {
+  position: fixed;
+  left: 32.53%;
+  right: 32%;
+  top: 92.61%;
+  bottom: 4.56%;
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 23px;
+  text-align: center;
+  width: 39%;
+  height: 35px;
+  border-radius: 5px;
+  color: whtite;
+  color: #FFFFFF;
+  background-color: #901C1C;
+  border-color: transparent;
+}
+
+.selection {
+  display: none;
+}
+
+.like {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  color: #901C1C;
+}
+
+.fa-heart {
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+/* header */
+header {
+  margin-bottom: 20px;
+}
+
+header img {
+  width: 30vw;
+}
+
+/* main */
+main .photographer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+main h1 {
+  text-decoration: none;
+  color: #D3573C;
+  font-weight: 100;
+  font-size: 2rem;
+  margin: 0;
+  padding-top: 1vw;
+}
+
+main .information {
+  line-height: 0;
+}
+
+main p {
+  margin: 11px 0;
+  white-space: nowrap;
+}
+
+main p.city {
+  color: #901C1C;
+}
+
+main p.bio {
+  color: #757575;
+}
+
+main .portrait {
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+main .portrait img {
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+main ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: wrap;
+      flex-flow: wrap;
+  list-style-type: none;
+  padding: 0;
+  color: #901C1C;
+  width: 120%;
+}
+
+main li {
+  padding: 3px 8px;
+  border: 0.5px solid #C4C4C4;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 11px;
+  margin-right: 1vw;
+  margin-bottom: 1vw;
+  font-size: 0.7rem;
+  font-weight: bold;
+  font-size: small;
+}
+
+main .photo {
+  width: 100%;
+  height: 190px;
+  border-radius: 5px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-bottom: 50px;
+}
+
+main .photo img {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+main .album {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-line-pack: distribute;
+      align-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+/*# sourceMappingURL=photograph.css.map */
