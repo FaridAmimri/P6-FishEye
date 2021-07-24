@@ -1,17 +1,24 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="..\scss\photograph.css">
     <title>Photographer Mimi</title>
 </head>
 
 <body>
     <header>
         <a href="index.html" alt="FishEye home page">
-            <img src="..\Logos\logo.png"> 
+            <img src="..\Logos\logo.png">
         </a>
     </header>
 
@@ -19,20 +26,21 @@
         <div class="photographer">
             <div class="profil">
                 <h1>Mimi Keel</h1>
-                <button>Contactez-moi</button>
+                <div class="information">
+                    <p class="city">London, UK</p><br>
+                    <p class="bio">Voir le beau dans le quotidien</p>
+                </div>
+                <nav>
+                <ul>
+                    <li><a><span>#portrait</span></a></li>
+                    <li><a><span>#events</span></a></li>
+                    <li><a><span>#travel</span></a></li>
+                    <li><a><span>#animals</span></a></li>
+                </ul>
+            </nav>
             </div>
-            <div class="information">
-                <p>London, UK</p><br>
-                <p>Voir le beau dans le quotidien</p>
-            </div>
-            <div class="tags">
-                <span>#portrait</span>
-                <span>#events</span>
-                <span>#travel</span>
-                <span>#animals</span>
-            </div>
-            <div class="photo">
-                <img>
+            <div class="portrait">
+                <img src="..\Photos\Mimi\Portrait_Nora.jpg" alt="">
             </div>
         </div>
         <div class="selection">
@@ -42,23 +50,56 @@
 
         <div class="album">
             <div class="photo">
-                <p>Arc-en-ciel</p>
+                <img src="..\Photos\Mimi\Animals_Rainbow.jpg">
+                <div class="like">
+                    <p>Arc-en-ciel</p>
+                    <p><b>12</b><i class="far fa-heart"></i></p>
+                </div>
             </div>
             <div class="photo">
-                <p>Solitude</p>
+                <img src="..\Photos\Mimi\Travel_Lonesome.jpg">
+                <div class="like">
+                    <p>Solitude</p>
+                    <p><b>12</b><i class="far fa-heart"></i></p>
+                </div>
             </div>
             <div class="photo">
-                <p>Mariage à la mer</p>
+                <img src="..\Photos\Mimi\Event_SeasideWedding.jpg">
+                <div class="like">
+                    <p>Mariage à la mer</p>
+                    <p><b>12</b><i class="far fa-heart"></i></p>
+                </div>
+            </div>
+            <div class="photo">
+                <img src="..\Photos\Mimi\Portrait_Background.jpg">
+                <div class="like">
+                    <p>Portrait</p>
+                    <p><b>12</b><i class="far fa-heart"></i></p>
+                </div>
+            </div>
+            <div class="photo">
+                <img src="..\Photos\Mimi\Event_PintoWedding.jpg">
+                <div class="like">
+                    <p>Union</p>
+                    <p><b>12</b><i class="far fa-heart"></i></p>
+                </div>
+            </div>
+            <div class="photo">
+                <img src="..\Photos\Mimi\Portrait_Wednesday.jpg">
+                <div class="like">
+                    <p>Jeunesse</p>
+                    <p><b>12</b><i class="far fa-heart"></i></p>
+                </div>
             </div>
         </div>
-
-        <div class="dialog" >
+        <button>Contactez-moi</button>
+        <div class="dialog">
             <div class="content">
-              <span class="close"></span>
-              <div class="modal-body"></div>
+                <span class="close"></span>
+                <div class="modal-body"></div>
                 <form id="inscription" action="index.html" method="get">
                     <h1>Contactez-moi<br>
-                    Mimi keel</h1>
+                        Mimi keel</h1>
                     <div class="formData">
                         <label>Prénom</label><br>
                         <input class="text-control" type="text" id="first" name="first" minlength="2" /><br>
@@ -67,7 +108,6 @@
                 </form>
             </div>
         </div>
-            
     </main>
-     
+
 </body>
