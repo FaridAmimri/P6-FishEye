@@ -8,4 +8,4 @@ function displayPhotographer(name, id, city, country, tags, tagline, price, port
     link.append(image)
     container.append(link)
 } 
-displayPhotographer("leo", 4, 7, 9, 11, 16, 34, "MimiKeel.jpg" )
+displayPhotographer()

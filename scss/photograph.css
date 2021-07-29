@@ -32,6 +32,24 @@ button {
 
 .selection {
   display: none;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 23px;
+  color: #000000;
+  margin-bottom: 60px;
+  border-color: transparent;
+}
+
+.selection select {
+  border-radius: 5px;
+  background: #911C1C;
+  color: #FFFFFF;
+  border-color: transparent;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 23px;
+  margin-left: 20px;
+  padding: 10px;
 }
 
 .like {
@@ -59,7 +77,7 @@ header {
 }
 
 header img {
-  width: 30vw;
+  width: 120px;
 }
 
 /* main */
@@ -67,6 +85,9 @@ main .photographer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   width: 100%;
   margin-bottom: 20px;
 }
@@ -131,11 +152,10 @@ main li {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   border-radius: 11px;
-  margin-right: 1vw;
-  margin-bottom: 1vw;
-  font-size: 0.7rem;
   font-weight: bold;
-  font-size: small;
+  font-size: 12px;
+  margin-right: 5px;
+  margin-bottom: 10px;
 }
 
 main .photo {
@@ -170,5 +190,279 @@ main .album {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+/* Modal form */
+.dialog {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background: rgba(196, 196, 196, 0.4);
+}
+
+.content {
+  margin: 20% auto;
+  width: 100%;
+  max-width: 500px;
+  -webkit-animation-name: modalopen;
+          animation-name: modalopen;
+  -webkit-animation-duration: var(--modal-duration);
+          animation-duration: var(--modal-duration);
+  background: #DB8876;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  padding-top: 10px;
+}
+
+.close {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  width: 32px;
+  height: 32px;
+  opacity: 1;
+  cursor: pointer;
+  -webkit-transform: scale(0.7);
+          transform: scale(0.7);
+}
+
+.close:before, .close:after {
+  position: absolute;
+  left: 15px;
+  content: " ";
+  height: 33px;
+  width: 3px;
+  background-color: #fff;
+}
+
+.close:before {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.close:after {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.modal-body {
+  padding: 15px 8%;
+  margin: 15px auto;
+  height: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+label {
+  font-size: 24px;
+  line-height: 31px;
+  color: #312E2E;
+}
+
+.text-control {
+  margin: 0;
+  width: 100%;
+  height: 52px;
+  border-radius: 5px;
+  font-size: 1.3rem;
+  border-color: transparent;
+  margin: 10px 0 20px 0;
+}
+
+.text-message {
+  margin: 0;
+  width: 100%;
+  height: 184px;
+  border-radius: 5px;
+  font-size: 1.3rem;
+  border-color: transparent;
+  margin: 10px 0 20px 0;
+}
+
+.btn-submit {
+  height: 35px;
+  width: 170px;
+  border-radius: 5px;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  font-family: DM Sans;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 23px;
+  background: #901C1C;
+  border-color: transparent;
+  color: #FFFFFF;
+}
+
+form h1 {
+  width: 85%;
+  font-weight: normal;
+  font-size: 36px;
+  line-height: 47px;
+  color: #000000;
+}
+
+.formData {
+  width: 85%;
+  margin: auto;
+}
+
+/* Responsive for Tablet */
+@media only screen and (min-width: 768px) {
+  body {
+    margin: auto;
+    width: 90%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  main .photographer {
+    background: #FAFAFA;
+    border-radius: 5px;
+  }
+  main .profil {
+    padding: 3%;
+  }
+  main .portrait {
+    padding: 3%;
+    width: 150px;
+    height: 150px;
+  }
+  main .portrait img {
+    width: 150px;
+    height: 150px;
+  }
+  main .album {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: wrap;
+        flex-flow: wrap;
+    height: auto;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  main .photo {
+    width: 330px;
+    height: 300px;
+  }
+}
+
+/* Responsive for Desktop */
+@media only screen and (min-width: 1024px) {
+  body {
+    margin: auto;
+    max-width: 1190px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  header img {
+    width: 195px;
+  }
+  main {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    height: auto;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    margin: auto;
+  }
+  main .photographer {
+    position: relative;
+  }
+  main .selection {
+    display: block;
+  }
+  main h1 {
+    font-size: 64px;
+  }
+  main p {
+    font-size: 20px;
+    margin: 5px 0;
+  }
+  main p.city {
+    font-size: 24px;
+    margin: 20px 0;
+  }
+  main p.bio {
+    font-size: 18px;
+    margin: 20px 0;
+  }
+  main ul {
+    padding-top: 10px;
+  }
+  main li {
+    font-size: 18px;
+    border-radius: 12px;
+  }
+  main button {
+    position: absolute;
+    top: 20%;
+    left: 450px;
+    width: 170px;
+    height: 69px;
+  }
+  main .portrait {
+    width: 200px;
+    height: 200px;
+  }
+  main .portrait img {
+    width: 200px;
+    height: 200px;
+  }
+  main .photo {
+    width: 300px;
+    height: 300px;
+  }
+  /* Modal form */
+  .content {
+    max-width: 669px;
+  }
+  form {
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  form h1 {
+    margin-left: 50px;
+  }
+  .btn-submit {
+    height: 69px;
+    width: 170px;
+    margin-left: 50px;
+  }
 }
 /*# sourceMappingURL=photograph.css.map */

@@ -2,3 +2,367 @@
 @import "./variable";
 @import "./mixin";
 
+/* éléments généraux de la page */
+body {
+    font-family: DM Sans;
+    margin: 45px 20px;
+}
+button {
+    position: fixed;
+    left: 32.53%;
+    right: 32%;
+    top: 92.61%;
+    bottom: 4.56%;
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 23px;
+    text-align: center;
+    width: 39%;
+    height: 35px;
+    border-radius: 5px;
+    color: whtite;
+    color: #FFFFFF;
+    background-color: $primarycolor;
+    border-color: transparent;
+}
+.selection {
+    display: none;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 23px;
+    color: #000000;
+    margin-bottom: 60px;
+    border-color: transparent;
+    select {
+        border-radius: 5px;
+        background: #911C1C;
+        color: #FFFFFF;
+        border-color: transparent;
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 23px;
+        margin-left: 20px;
+        padding: 10px;
+    }
+}
+.like {
+    display: flex;
+    align-items: baseline;
+    justify-content:space-between;
+    width: 100%;
+    color: #901C1C;
+}
+.fa-heart {
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+/* header */
+header {
+    margin-bottom: 20px;
+    img {
+        width: 120px;
+    }
+}
+
+/* main */
+main {
+    .photographer {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    h1 {
+        @include title
+    }
+    .information {
+        line-height: 0;
+    }
+    p {
+        margin: 11px 0;
+        white-space: nowrap;
+    }
+    p.city {
+        color: $primarycolor;
+    }
+    p.bio {
+        color: $tertiarycolor;
+    }
+    .portrait {
+        width: 100px;
+        height: 100px;
+        border-radius: 100px;
+        object-fit: cover;
+    }
+    .portrait img {
+        width: 100px;
+        height: 100px;
+        border-radius: 100px;
+        object-fit: cover;
+    }
+    ul {
+        @include ul;
+        width: 120%;
+    }
+    li {
+        @include li
+    }
+    .photo {
+        width: 100%;
+        height: 190px;
+        border-radius: 5px;
+        object-fit: cover;
+        margin-bottom: 50px;
+    }
+    .photo img {
+        width: 100%;
+        height: 100%;
+        border-radius: 5px;
+        -o-object-fit: cover;
+        object-fit: cover;
+        box-sizing: border-box;
+    }
+    .album {
+        display: flex;
+        flex-direction: column;
+        align-content: space-around;
+        align-items: center;
+    }
+}
+
+/* Modal form */
+.dialog {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background: rgba(196, 196, 196, 0.4);
+}
+.content {
+    margin: 20% auto;
+    width: 100%;
+    max-width: 500px;
+    animation-name: modalopen;
+    animation-duration: var(--modal-duration);
+    background: #DB8876;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    padding-top: 10px;
+}
+.close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    width: 32px;
+    height: 32px;
+    opacity: 1;
+    cursor: pointer;
+    transform: scale(0.7);
+    &:before,
+    &:after {
+        position: absolute;
+        left: 15px;
+        content: " ";
+        height: 33px;
+        width: 3px;
+        background-color: #fff;
+    }
+}
+.close:before {
+    transform: rotate(45deg);
+  }
+  .close:after {
+    transform: rotate(-45deg);
+  }
+.modal-body {
+    padding: 15px 8%;
+    margin: 15px auto;
+    height: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+label {
+    font-size: 24px;
+    line-height: 31px;
+    color: #312E2E;
+}
+.text-control {
+    margin: 0;
+    width: 100%;
+    height: 52px;
+    border-radius: 5px;
+    font-size: 1.3rem;
+    border-color: transparent;
+    margin: 10px 0 20px 0;
+}
+.text-message {
+    margin: 0;
+    width: 100%;
+    height: 184px;
+    border-radius: 5px;
+    font-size: 1.3rem;
+    border-color: transparent;
+    margin: 10px 0 20px 0;
+}
+.btn-submit {
+    height: 35px;
+    width: 170px;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    font-family: DM Sans;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 23px;
+    background: #901C1C;
+    border-color: transparent;
+    color: #FFFFFF;
+}
+form h1 {
+    width: 85%;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 47px;
+    color: #000000;
+}
+.formData {
+    width: 85%;
+    margin: auto;
+}
+
+/* Responsive for Tablet */
+  
+@media #{$medium-up} {
+    body {
+        margin: auto;
+        width: 90%;
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+    main {
+        .photographer {
+            background: $backgroundcolor;
+            border-radius: 5px;
+        }
+        .profil {
+            padding: 3%;
+        }
+        .portrait {
+            padding: 3%;
+            width: 150px;
+            height: 150px;
+        }
+        .portrait img {
+            width: 150px;
+            height: 150px;
+        }
+        .album {
+            display: flex;
+            flex-flow: wrap;
+            height: auto;
+            justify-content: space-between;
+        }
+        .photo {
+            width: 330px;
+            height: 300px;
+        }
+    }
+}
+
+/* Responsive for Desktop */
+@media #{$large-up} {
+    body {
+        margin: auto;
+        max-width: 1190px;
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+    header img {
+        width: 195px;
+    }
+    main {
+        display: flex;
+        flex-wrap: wrap;
+        height: auto;
+        justify-content: space-between;
+        margin: auto;
+        .photographer {
+            position: relative;
+        }
+        .selection {
+            display: block;
+        }
+        h1 {
+            font-size: 64px;
+        }
+        p {
+            font-size: 20px;
+            margin: 5px 0;
+        }
+        p.city {
+            font-size: 24px;
+            margin: 20px 0;
+        }
+        p.bio {
+            font-size: 18px;
+            margin: 20px 0;
+        }
+        ul {
+            padding-top: 10px;
+        }
+        li {
+            font-size: 18px;
+            border-radius: 12px;
+        }
+        button {
+            position: absolute;
+            top: 20%;
+            left: 450px;
+            width: 170px;
+            height: 69px;
+            
+        }
+        .portrait {
+            width: 200px;
+            height: 200px;
+        }
+        .portrait img {
+            width: 200px;
+            height: 200px;
+        }
+        .photo {
+            width: 300px;
+            height: 300px;
+        }
+    }
+    /* Modal form */
+    .content {
+        max-width: 669px;
+    }
+    form {
+        align-items: flex-start;
+        h1 {
+            margin-left: 50px;
+        }
+    }
+    .btn-submit { 
+        height: 69px;
+        width: 170px;
+        margin-left: 50px;
+    }
+}

@@ -26,28 +26,32 @@
         <div class="photographer">
             <div class="profil">
                 <h1>Mimi Keel</h1>
+                <button>Contactez-moi</button>
                 <div class="information">
                     <p class="city">London, UK</p><br>
                     <p class="bio">Voir le beau dans le quotidien</p>
                 </div>
                 <nav>
-                <ul>
-                    <li><a><span>#portrait</span></a></li>
-                    <li><a><span>#events</span></a></li>
-                    <li><a><span>#travel</span></a></li>
-                    <li><a><span>#animals</span></a></li>
-                </ul>
-            </nav>
+                    <ul>
+                        <li><a><span>#portrait</span></a></li>
+                        <li><a><span>#events</span></a></li>
+                        <li><a><span>#travel</span></a></li>
+                        <li><a><span>#animals</span></a></li>
+                    </ul>
+                </nav>
             </div>
             <div class="portrait">
-                <img src="..\Photos\Mimi\Portrait_Nora.jpg" alt="">
+                <img src="../Photos/Photographers ID Photos/MimiKeel.jpg" alt="">
             </div>
         </div>
         <div class="selection">
-            <label>Trier par</label>
-            <input>
+            <label for="option-select">Trier par</label>
+            <select name="option" id="option-select">
+                <option value="popularity">Popularité</option>
+                <option value="date">Date</option>
+                <option value="title">Titre</option>
+            </select>
         </div>
-
         <div class="album">
             <div class="photo">
                 <img src="..\Photos\Mimi\Animals_Rainbow.jpg">
@@ -92,7 +96,9 @@
                 </div>
             </div>
         </div>
-        <button>Contactez-moi</button>
+    </main>
+
+    <footer>
         <div class="dialog">
             <div class="content">
                 <span class="close"></span>
@@ -104,10 +110,22 @@
                         <label>Prénom</label><br>
                         <input class="text-control" type="text" id="first" name="first" minlength="2" /><br>
                     </div>
-
+                    <div class="formData">
+                        <label>Nom</label><br>
+                        <input class="text-control" type="text" id="last" name="last" /><br>
+                      </div>
+                      <div class="formData">
+                        <label>E-mail</label><br>
+                        <input class="text-control" type="email" id="email" name="email" /><br>
+                      </div>
+                      <div class="formData">
+                        <label>Votre message</label><br>
+                        <input class="text-message" type="text" id="message" name="message" /><br>
+                      </div>
+                      <input class="btn-submit" type="submit" class="button" value="Envoyer" />
                 </form>
             </div>
         </div>
-    </main>
-
+    </footer>
 </body>
+</html>

@@ -1,0 +1,29 @@
+/* mixins body */
+@mixin title {
+    text-decoration: none;
+    color: $secondarycolor;
+    font-weight: 100;
+    font-size: 2rem;
+    margin: 0;
+    padding-top: 1vw;
+}
+
+/* mixins du nav */
+@mixin ul {
+    display: flex;
+    flex-flow: wrap;
+    list-style-type: none;
+    padding: 0;
+    color: $primarycolor;
+}
+
+@mixin li {
+    padding: 3px 8px;
+    border: 0.5px solid #C4C4C4;
+    box-sizing: border-box;
+    border-radius: 11px;
+    font-weight: bold;
+    font-size: 12px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+}
