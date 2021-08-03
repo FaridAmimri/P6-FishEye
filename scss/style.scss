@@ -41,9 +41,6 @@ header {
 
 /* main */
 main {
-    .information {
-        line-height: 0;
-    }
     img {
         height: 200px;
         width: 200px;
@@ -54,7 +51,7 @@ main {
         @include title
     }
     p {
-        margin: 12px;
+        margin: 3px;
         white-space: nowrap;
     }
     p.city {

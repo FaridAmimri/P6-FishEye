@@ -69,10 +69,6 @@ header li {
 }
 
 /* main */
-main .information {
-  line-height: 0;
-}
-
 main img {
   height: 200px;
   width: 200px;
@@ -91,7 +87,7 @@ main h2 {
 }
 
 main p {
-  margin: 12px;
+  margin: 3px;
   white-space: nowrap;
 }
 
