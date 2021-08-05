@@ -1,14 +1,13 @@
-function viewPhotographer(name, id, city, country, tags, tagline, price, portrait) {
+function viewPhotographer(name, id, city, country, tagline, tags, portrait) {
     const container = document.createElement("div");
     container.className = "photographer";
 
     const profil = document.createElement("div");
     profil.className = "profil";
-    container.append(profil)
 
-    const name = document.createElement("h1");
-    name.textContent = "name";
-    profil.append(name)
+    const photograph = document.createElement("h1");
+    photograph.textContent = "name";
+    profil.append(photograph)
     container.append(profil)
 
     const button = document.createElement("button");
@@ -18,8 +17,6 @@ function viewPhotographer(name, id, city, country, tags, tagline, price, portrai
 
     const info = document.createElement("div");
     info.className = "information";
-    profil.append(info)
-    container.append(profil)
     const location = document.createElement("p");
     location.className = "city";
     location.textContent = city + ", " + country;
@@ -47,6 +44,14 @@ function viewPhotographer(name, id, city, country, tags, tagline, price, portrai
     
     nav.append(ul)
     container.append(nav)
+
+    const face = document.createElement("div");
+    face.className = "portrait";
+    const image = document.createElement("img");
+    image.src = "../Photos/PhotographersIDPhotos/" + portrait;
+    face.append(image)
+    container.append(face)
+
     document.querySelector('main').append(container);
 }
 viewPhotographer("Mimi Keel", 243, "London", "UK", ["#portrait", "#events", "#travel", "#animals"], "Voir le beau dans le quotidien", 400, "MimiKeel.jpg");
