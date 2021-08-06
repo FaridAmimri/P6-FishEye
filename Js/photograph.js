@@ -6,7 +6,7 @@ function viewPhotographer(name, id, city, country, tagline, tags, portrait) {
     profil.className = "profil";
 
     const photograph = document.createElement("h1");
-    photograph.textContent = "name";
+    photograph.textContent = name;
     profil.append(photograph)
     container.append(profil)
 
@@ -17,6 +17,8 @@ function viewPhotographer(name, id, city, country, tagline, tags, portrait) {
 
     const info = document.createElement("div");
     info.className = "information";
+    profil.append(info)
+    container.append(profil)
     const location = document.createElement("p");
     location.className = "city";
     location.textContent = city + ", " + country;
@@ -43,7 +45,8 @@ function viewPhotographer(name, id, city, country, tagline, tags, portrait) {
     }
     
     nav.append(ul)
-    container.append(nav)
+    profil.append(nav)
+    container.append(profil)
 
     const face = document.createElement("div");
     face.className = "portrait";
@@ -54,65 +57,69 @@ function viewPhotographer(name, id, city, country, tagline, tags, portrait) {
 
     document.querySelector('main').append(container);
 }
-viewPhotographer("Mimi Keel", 243, "London", "UK", ["#portrait", "#events", "#travel", "#animals"], "Voir le beau dans le quotidien", 400, "MimiKeel.jpg");
+viewPhotographer("Mimi Keel", 243, "London", "UK", "Voir le beau dans le quotidien", ["#portrait", "#events", "#travel", "#animals"], "MimiKeel.jpg");
 
 
-// function selectionPhotographer() {
-//     const container = document.createElement("div");
-//     container.className = "selection";
+function selectionPhotographer() {
+    const container = document.createElement("div");
+    container.className = "selection";
 
-//     const select = document.createElement("label");
-//     select.for = "option-select";
-//     select.textContent = "Trier par";
-//     container.append(select)
-//     const option = document.createElement("select")
-//     option.name = "option";
-//     container.append(option)
-//     const popularity = document.createElement("option");
-//     popularity.value = "popularity";
-//     popularity.textContent = "Popularité";
-//     select.append(popularity)
-//     container.append(select)
-//     const date = document.createElement("option");
-//     date.value = "date";
-//     date.textContent = "Date";
-//     select.append(date)
-//     container.append(select)
-//     const title = document.createElement("option");
-//     title.value = "title";
-//     title.textContent = "Titre";
-//     select.append(title)
-//     container.append(select)
+    const select = document.createElement("label");
+    select.for = "option-select";
+    select.textContent = "Trier par";
+    container.append(select)
+    const option = document.createElement("select")
+    option.name = "option";
+    option.id = "option-select";
+    container.append(option)
+    const popularity = document.createElement("option");
+    popularity.value = "popularity";
+    popularity.textContent = "Popularité";
+    option.append(popularity)
+    container.append(option)
+    const date = document.createElement("option");
+    date.value = "date";
+    date.textContent = "Date";
+    option.append(date)
+    container.append(option)
+    const title = document.createElement("option");
+    title.value = "title";
+    title.textContent = "Titre";
+    option.append(title)
+    container.append(option)
 
-//     document.querySelector('main').append(container);
-// }
-// // selectionPhotographer()
+    document.querySelector('main').append(container);
+}
+selectionPhotographer()
 
 
-// function selectionAlbum(id, photographerId, title, image, tags, likes, date, price) {
-//     const container = document.createElement("div");
-//     container.className = "album";
+function selectionAlbum(id, photographerId, title, image, tags, likes, date, price) {
+    const container = document.createElement("div");
+    container.className = "album";
 
-//     const photo = document.createElement("div");
-//     photo.className = "photo";
-//     container.append(photo)
-//     const image = document.createElement("img");
-//     image.src = "../Photos/Mimi/Animals_Rainbow.jpg";
-//     photo.append(image)
-//     container.append(photo)
-//     const like = document.createElement("div");
-//     like.className = "like";
-//     photo.append(like)
-//     container.append(photo)
-//     const paragraph = document.createElement("p");
-//     like.append(paragraph)
-//     photo.append(like)
-//     container.append(photo)
-//     const heart = document.createElement("p");
-//     heart.className = "far fa-heart";
-//     heart.textContent = "12";
-//     like.append(heart)
-//     photo.append(like)
-//     container.append(photo)
-// }
-// // selectionAlbum(342550, 82, "Fashion Yellow Beach", "Fashion_Yellow_Beach.jpg", ["#fashion"], 62, 55)
+    const photo = document.createElement("div");
+    photo.className = "photo";
+    container.append(photo)
+    const diapo = document.createElement("img");
+    diapo.src = "../Photos/Mimi/" + image;
+    photo.append(diapo)
+    container.append(photo)
+    const like = document.createElement("div");
+    like.className = "like";
+    photo.append(like)
+    container.append(photo)
+    const paragraph = document.createElement("p");
+    paragraph.textContent = title;
+    like.append(paragraph)
+    photo.append(like)
+    container.append(photo)
+    const heart = document.createElement("p");
+    heart.className = "far fa-heart";
+    heart.textContent = likes;
+    like.append(heart)
+    photo.append(like)
+    container.append(photo)
+
+    document.querySelector('main').append(container);
+}
+selectionAlbum(342550, 82, "Fashion Yellow Beach", "Animals_Rainbow.jpg", ["#fashion"], 62, 55);
