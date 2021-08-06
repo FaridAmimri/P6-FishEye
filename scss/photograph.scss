@@ -78,9 +78,6 @@ main {
     h1 {
         @include title
     }
-    .information {
-        line-height: 0;
-    }
     p {
         margin: 11px 0;
         white-space: nowrap;
@@ -316,14 +313,9 @@ form h1 {
         }
         p.city {
             font-size: 24px;
-            margin: 20px 0;
         }
         p.bio {
             font-size: 18px;
-            margin: 20px 0;
-        }
-        ul {
-            padding-top: 10px;
         }
         li {
             font-size: 18px;
