@@ -3,7 +3,7 @@ function displayPhotographer(name, id, city, country, tags, tagline, price, port
     container.className = "photographer";
 
     const link = document.createElement("a");
-    link.href = "photograph.html";
+    link.href = "photograph.html?id=" + id;
     const image = document.createElement("img");
     image.src = "../Photos/PhotographersIDPhotos/" + portrait;
     link.append(image)
@@ -50,7 +50,7 @@ function displayPhotographer(name, id, city, country, tags, tagline, price, port
 fetch("./FishEyeData.json")
     .then(data => data.json())
     .then(result => {
-     
+    
     for (let i = 0; i < result.photographers.length ; i++) {
 
         displayPhotographer(result.photographers[i].name, result.photographers[i].id, result.photographers[i].city, result.photographers[i].country, result.photographers[i].tags, result.photographers[i].tagline, result.photographers[i].price, result.photographers[i].portrait);
