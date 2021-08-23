@@ -69,16 +69,17 @@ class Image {
         this.date = date;
         this.price = price;
     }
-
+   
     render() {
         const container = document.createElement("div");
         container.className = "album";
-
         const photo = document.createElement("div");
         photo.className = "photo";
         container.append(photo)
         const diapo = document.createElement("img");
-        diapo.src = "../Photos" + this.photographerId + this.image;
+        const name = result.photographers[i].name;
+        const sirname = name.split(words[0]);
+        diapo.src = "../Photos/" + sirname + this.image;
         photo.append(diapo)
         container.append(photo)
         const like = document.createElement("div");
@@ -116,12 +117,11 @@ class Video {
     render() {
         const container = document.createElement("div");
         container.className = "album";
-
         const photo = document.createElement("div");
         photo.className = "photo";
         container.append(photo)
-        const diapo = document.createElement("img");
-        diapo.src = "../Photos" + this.photographerId + this.image;
+        const diapo = document.createElement("video");
+        diapo.src = "../Photos/ " + + this.video;
         photo.append(diapo)
         container.append(photo)
         const like = document.createElement("div");
@@ -160,56 +160,24 @@ fetch("./FishEyeData.json")
             }
         }
 
-
         for (let i = 0; i < result.media.length; i++) {
-
+            let newMedia;
             if (result.media[i].photographerId === photographerId) {
-                console.log(result.media[i])
-                if () {
-                    new Image()
+               
+                if (result.media[i].image) {
+                    newMedia
+                    console.log(newMedia)
                 }
                 else {
-                    new Video()
+                    new Video() 
                 }
                 const newMedia = new Image(result.media[i].id, result.media[i].photographerId, result.media[i].title, result.media[i].image, result.media[i].tags, result.media[i].likes, result.media[i].date, result.media[i].price);
                 newMedia.render();
                 mediaList.push(newMedia);
+
             }
         }
-
     })
-
-function selectionAlbum(id, photographerId, title, image, tags, likes, date, price) {
-    const container = document.createElement("div");
-    container.className = "album";
-
-    const photo = document.createElement("div");
-    photo.className = "photo";
-    container.append(photo)
-    const diapo = document.createElement("img");
-    diapo.src = "../Photos/Mimi/" + image;
-    photo.append(diapo)
-    container.append(photo)
-    const like = document.createElement("div");
-    like.className = "like";
-    photo.append(like)
-    container.append(photo)
-    const paragraph = document.createElement("p");
-    paragraph.textContent = title;
-    like.append(paragraph)
-    photo.append(like)
-    container.append(photo)
-    const heart = document.createElement("p");
-    heart.className = "far fa-heart";
-    heart.textContent = likes;
-    like.append(heart)
-    photo.append(like)
-    container.append(photo)
-
-    document.querySelector('main').append(container);
-}
-
-
 
 // function selectionPhotographer() {
 //     const container = document.createElement("div");
@@ -241,4 +209,3 @@ function selectionAlbum(id, photographerId, title, image, tags, likes, date, pri
 
 //     document.querySelector('main').append(container);
 // }
-// selectionPhotographer()
