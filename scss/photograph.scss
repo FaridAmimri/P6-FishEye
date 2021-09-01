@@ -114,7 +114,7 @@ main {
         object-fit: cover;
         margin-bottom: 50px;
     }
-    .photo img {
+    .photo img, .photo video {
         width: 100%;
         height: 100%;
         border-radius: 5px;

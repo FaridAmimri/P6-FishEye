@@ -13,6 +13,7 @@ header {
     display: flex;
     flex-flow: wrap;
     color: $primarycolor;
+    margin-bottom: 50px;
     
     img {
         width: 30vw;
@@ -115,7 +116,7 @@ main {
     }
     header {
         position: relative;
-        margin-bottom: 35px;
+        margin-bottom: 100px;
         img {
             width: 195px;
             margin-left: 55px;
