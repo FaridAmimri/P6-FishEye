@@ -13,7 +13,7 @@ button {
   position: fixed;
   left: 32.53%;
   right: 32%;
-  top: 92.61%;
+  top: 83.61%;
   bottom: 4.56%;
   font-family: DM Sans;
   font-style: normal;
@@ -32,6 +32,7 @@ button {
 
 .selection {
   display: none;
+  width: 100%;
   font-weight: bold;
   font-size: 18px;
   line-height: 23px;
@@ -81,6 +82,17 @@ header img {
 }
 
 /* main */
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
 main .photographer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -186,6 +198,32 @@ main .album {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+main .totaloflikes {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: fixed;
+  right: 0px;
+  bottom: 0px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 60px;
+  width: 230px;
+  border-radius: 5px;
+  background: #DB8876;
+  border-radius: 5px;
+  font-size: 15px;
+}
+
+main .totaloflikes p {
+  padding: 20px;
+  font-weight: bold;
 }
 
 /* Modal form */
@@ -437,6 +475,11 @@ form h1 {
   main .photo {
     width: 300px;
     height: 300px;
+  }
+  main .totaloflikes {
+    right: 25px;
+    width: 300px;
+    font-size: 24px;
   }
   /* Modal form */
   .content {

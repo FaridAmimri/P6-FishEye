@@ -11,7 +11,7 @@ button {
     position: fixed;
     left: 32.53%;
     right: 32%;
-    top: 92.61%;
+    top: 83.61%;
     bottom: 4.56%;
     font-family: DM Sans;
     font-style: normal;
@@ -29,6 +29,7 @@ button {
 }
 .selection {
     display: none;
+    width: 100%;
     font-weight: bold;
     font-size: 18px;
     line-height: 23px;
@@ -69,6 +70,9 @@ header {
 
 /* main */
 main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     .photographer {
         display: flex;
         justify-content: space-between;
@@ -127,6 +131,24 @@ main {
         flex-direction: column;
         align-content: space-around;
         align-items: center;
+    }
+    .totaloflikes {
+        display: flex;
+        position: fixed;
+        right: 0px;
+        bottom: 0px;
+        align-items: center;
+        justify-content: space-between;
+        height: 60px;
+        width: 230px;
+        border-radius: 5px;
+        background: #DB8876;
+        border-radius: 5px;
+        font-size: 15px;
+        p {
+            padding: 20px;
+            font-weight: bold;
+        }
     }
 }
 
@@ -340,6 +362,11 @@ form h1 {
         .photo {
             width: 300px;
             height: 300px;
+        }
+        .totaloflikes {
+            right: 25px;
+            width: 300px;
+            font-size: 24px;
         }
     }
     /* Modal form */
