@@ -2,9 +2,17 @@ import { Image } from "./class/image.js";
 import { Video } from "./class/video.js";
 import { viewPhotograph } from "./function/view.js";
 import { selectionPhotograph } from "./function/selection.js";
+import { displayLikes } from "./function/display.js";
 
 
-const mediaList = [];
+export const mediaList = [];
+export function getTotalLikes(medias) {
+    let total = 0;
+    for (let i = 0; i < medias.length; i++) {
+        total += medias[i].likes;
+    }
+    return total;
+}
 
 fetch("./FishEyeData.json")
     .then(data => data.json())
@@ -44,23 +52,16 @@ fetch("./FishEyeData.json")
                 mediaList.push(newMedia);
             }
         }
-        console.log(mediaList);
 
-        function getTotalLikes() {
-            let total = 0;
-
-            for (let i = 0; i < result.media.length; i++) {
-                
-                if (result.media[i].photographerId === photographerId) {
-                total += result.media[i].likes;
-                }
-            }
-            return total;
-        }
-
-        getTotalLikes();
         let totalLikes = getTotalLikes(mediaList);
         console.log(totalLikes);
+
+        for (let i = 0; i < result.photographers.length; i++) {
+
+            if (result.photographers[i].id === photographerId) {  
+                displayLikes(result.photographers[i].price);
+            }
+        }
     })
 
 

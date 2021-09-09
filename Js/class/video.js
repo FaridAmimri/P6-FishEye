@@ -1,3 +1,5 @@
+import {mediaList, getTotalLikes} from "../photograph.js";
+
 export class Video {
     constructor(id, photographerId, title, video, tags, likes, date, price) {
         this.id = id;
@@ -35,6 +37,13 @@ export class Video {
         like.append(heart)
         photo.append(like)
         container.append(photo)
+
+        heart.addEventListener("click", () => {
+            this.likes += 1;
+            heart.textContent = this.likes;
+            let totalLikes = getTotalLikes(mediaList);
+            console.log(totalLikes);
+        })
 
         document.querySelector('main').append(container);
     }

@@ -26,7 +26,7 @@ function displayPhotographer(name, id, city, country, tags, tagline, price, port
     container.append(article)
     const money = document.createElement("p");
     money.className = "price";
-    money.textContent = price +"€/jour";
+    money.textContent = price + "€/jour";
     article.append(money)
     container.append(article)
 
@@ -34,7 +34,7 @@ function displayPhotographer(name, id, city, country, tags, tagline, price, port
     const ul = document.createElement("ul");
 
     for (let i = 0; i < tags.length; i++) {
-        
+
         const li = document.createElement("li");
         const linka = document.createElement("a");
         linka.innerHTML = tags[i];
@@ -45,16 +45,16 @@ function displayPhotographer(name, id, city, country, tags, tagline, price, port
     nav.append(ul)
     container.append(nav)
     document.querySelector('main').append(container);
-} 
+}
 
 fetch("./FishEyeData.json")
     .then(data => data.json())
     .then(result => {
-    
-    for (let i = 0; i < result.photographers.length ; i++) {
 
-        displayPhotographer(result.photographers[i].name, result.photographers[i].id, result.photographers[i].city, result.photographers[i].country, result.photographers[i].tags, result.photographers[i].tagline, result.photographers[i].price, result.photographers[i].portrait);
-    }  
+        for (let i = 0; i < result.photographers.length; i++) {
+
+            displayPhotographer(result.photographers[i].name, result.photographers[i].id, result.photographers[i].city, result.photographers[i].country, result.photographers[i].tags, result.photographers[i].tagline, result.photographers[i].price, result.photographers[i].portrait);
+        }
     })
 
 

@@ -43,7 +43,7 @@ export function viewPhotograph(name, id, city, country, tagline, tags, portrait)
         li.append(linka)
         ul.append(li)
     }
-
+    
     nav.append(ul)
     profil.append(nav)
     container.append(profil)
