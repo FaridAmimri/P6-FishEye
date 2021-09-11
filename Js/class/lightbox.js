@@ -1,7 +1,8 @@
 export class Lightbox {
-    activate() {
+
+    static displayModal() {
         document.body.insertAdjacentHTML("beforeend", `
-            <div class="lightbox" id="lightbox" style="display: none;">
+            <div class="lightbox" id="lightbox" style="display:">
                 <div class="lightbox__inner">
                     <button type="button" class="lightbox__close">
                         &times;
@@ -11,30 +12,38 @@ export class Lightbox {
                 </div>
             </div>
         `);
+    }
 
+    static closeModal() {
         const lightBox = document.querySelector("#lightbox");
-        const btnClose = lightBox.querySelector(".lightbox__close");
-        const content = lightBox.querySelector(".lightbox__content");
-        const closeLightBox = () => {
-            lightBox.getElementsByClassName.display = "none";
-            content.innerHTML = "";
-        };
+        const btnClose = document.querySelector(".lightbox__close");
+        const content = document.querySelector(".lightbox__content");
 
-        lightBox.addEventListener("mousedown", e => {
-            if (e.target.matches("#lightbox")) {
-                closeLightBox();
-            }
-        });
+        function closeLightBox() {
+            lightBox.style.display = "none";
+            content.innerHTML = "";
+        }
 
         btnClose.addEventListener("click", () => {
             closeLightBox();
-        })
-        
+        });
     }
 
-    show(media) {
-        const content = document.querySelector("#lightbox .lightbox__content");
-        document.querySelector("#lightbox").style.display = null;
-        content.innerHTML = media;
+    static openModal() {
+        const lightBox = document.querySelector(".lightbox");
+        const openMedia = document.querySelectorAll(".album");
+
+        function openLightBox() {
+            lightBox.style.display = "block";
+        }
+
+        openMedia.addEventListener("click", () => {
+            openLightBox();
+        });
     }
+
 }
+
+
+
+
