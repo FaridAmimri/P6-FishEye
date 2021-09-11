@@ -3,7 +3,7 @@ import { Video } from "./class/video.js";
 import { viewPhotograph } from "./function/view.js";
 import { selectionPhotograph } from "./function/selection.js";
 import { displayLikes } from "./function/display.js";
-
+import { Lightbox } from "./class/lightbox.js";
 
 export const mediaList = [];
 export function getTotalLikes(medias) {
@@ -62,6 +62,14 @@ fetch("./FishEyeData.json")
                 displayLikes(result.photographers[i].price);
             }
         }
+        
+        Lightbox.displayModal();
+        Lightbox.closeModal();
+        Lightbox.openModal();
+
+        
+
+        
     })
 
 
