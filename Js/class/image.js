@@ -1,5 +1,5 @@
 import { displayLikes } from "../function/display.js";
-import {mediaList, getTotalLikes} from "../photograph.js";
+import { mediaList, getTotalLikes } from "../photograph.js";
 
 export class Image {
     constructor(id, photographerId, title, image, tags, likes, date, price) {
@@ -12,16 +12,18 @@ export class Image {
         this.date = date;
         this.price = price;
     }
-   
+
     render() {
         const container = document.createElement("div");
         container.className = "album";
         const photo = document.createElement("div");
         photo.className = "photo";
         container.append(photo)
+        const link = document.createElement("a")
         const diapo = document.createElement("img");
         diapo.src = this.image;
-        photo.append(diapo)
+        link.append(diapo)
+        photo.append(link)
         container.append(photo)
         const like = document.createElement("div");
         like.className = "like";
@@ -48,6 +50,21 @@ export class Image {
         })
 
         document.querySelector('main').append(container);
+    }
+
+    load() {
+        const content = document.querySelector(".lightbox__container");
+        const image = document.createElement("img");
+        image.src = null;
+        image.src = this.image;
+        content.append(image);
+    }
+
+    next() {
+        const content = document.querySelector(".lightbox__container");
+        let i = this.image;
+        content.textContent = "";
+        this.load(this.image[i++]);
     }
 }
 

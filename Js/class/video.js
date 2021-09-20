@@ -1,4 +1,5 @@
-import {mediaList, getTotalLikes} from "../photograph.js";
+import { displayLikes } from "../function/display.js";
+import { mediaList, getTotalLikes } from "../photograph.js";
 
 export class Video {
     constructor(id, photographerId, title, video, tags, likes, date, price) {
@@ -18,9 +19,11 @@ export class Video {
         const photo = document.createElement("div");
         photo.className = "photo";
         container.append(photo)
+        const link = document.createElement("a")
         const diapo = document.createElement("video");
         diapo.src = this.video;
-        photo.append(diapo)
+        link.append(diapo)
+        photo.append(link)
         container.append(photo)
         const like = document.createElement("div");
         like.className = "like";
@@ -43,9 +46,26 @@ export class Video {
             heart.textContent = this.likes;
             let totalLikes = getTotalLikes(mediaList);
             console.log(totalLikes);
+            displayLikes();
         })
 
         document.querySelector('main').append(container);
+    }
+
+    load() {
+        const content = document.querySelector(".lightbox__content");
+        const video = document.createElement("video");
+        video.src = null;
+        video.src = this.video;
+        content.append(video);
+    }
+
+    next() {
+        const content = document.querySelector(".lightbox__container");
+        let i = this.video;
+        content.textContent = "";
+        this.load(this.video[i++]);
+        
     }
 }
 
