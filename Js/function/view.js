@@ -11,6 +11,7 @@ export function viewPhotograph(name, id, city, country, tagline, tags, portrait)
     container.append(profil)
 
     const button = document.createElement("button");
+    button.className = "contact_me";
     button.textContent = "Contactez-moi";
     profil.append(button)
     container.append(profil)
