@@ -21,11 +21,11 @@ fetch("./FishEyeData.json")
         const param = new URLSearchParams(document.location.search);
         const photographerId = Number(param.get("id"));
         let activePhotographerData = {};
-         
+
         for (let i = 0; i < result.photographers.length; i++) {
 
             if (result.photographers[i].id === photographerId) {
- 
+
                 activePhotographerData = result.photographers[i];
                 viewPhotograph(result.photographers[i].name, result.photographers[i].id, result.photographers[i].city, result.photographers[i].country, result.photographers[i].tagline, result.photographers[i].tags, result.photographers[i].portrait);
             }
@@ -36,40 +36,46 @@ fetch("./FishEyeData.json")
         for (let i = 0; i < result.media.length; i++) {
             let newMedia;
             if (result.media[i].photographerId === photographerId) {
-               
+
                 if (result.media[i].image) {
- 
                     const firstName = activePhotographerData.name.split(" ")[0];
                     const src = `../Photos/${firstName}/${result.media[i].image}`;
-                    newMedia = new Image(result.media[i].id, result.media[i].photographerId, result.media[i].title, src, result.media[i].tags, result.media[i].likes, result.media[i].date, result.media[i].price); 
+                    newMedia = new Image(result.media[i].id, result.media[i].photographerId, result.media[i].title, src, result.media[i].tags, result.media[i].likes, result.media[i].date, result.media[i].price);
                 }
                 else {
                     const firstName = activePhotographerData.name.split(" ")[0];
                     const src = `../Photos/${firstName}/${result.media[i].video}`;
                     newMedia = new Video(result.media[i].id, result.media[i].photographerId, result.media[i].title, src, result.media[i].tags, result.media[i].likes, result.media[i].date, result.media[i].price);
                 }
+
                 newMedia.render();
                 mediaList.push(newMedia);
             }
         }
 
         let totalLikes = getTotalLikes(mediaList);
-        console.log(totalLikes);
 
         for (let i = 0; i < result.photographers.length; i++) {
 
-            if (result.photographers[i].id === photographerId) {  
+            if (result.photographers[i].id === photographerId) {
                 displayLikes(result.photographers[i].price);
             }
         }
-        
-        Lightbox.displayModal();
-        Lightbox.closeModal();
-        Lightbox.openModal();
 
-        
+        const openMediaList = document.querySelectorAll('.album');
+        for (let i = 0; i < openMediaList.length; i++) {
+            openMediaList[i].addEventListener("click", () => {
+                Lightbox.init();
+                Lightbox.open(mediaList[i]);
 
-        
-    })
+                Lightbox.switch(mediaList[i + 1]);
+
+                Lightbox.close();
+            });
+        }
+
+
+
+    });
 
 
