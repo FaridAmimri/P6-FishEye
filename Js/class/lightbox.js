@@ -1,155 +1,97 @@
-export class Lightbox {
+import { mediaList, mediaDom } from "../photograph.js";
+import { Image } from "./image.js";
 
-    /* Construction du DOM */  
-    static init() {
-        document.body.insertAdjacentHTML("beforeend", `
-            <div class="lightbox" style="display:none">
-               <i class="fas fa-times lightbox__close"></i>
-               <i class="fas fa-angle-right lightbox__next"></i>
-               <i class="fas fa-angle-left lightbox__prev"></i>
-               <div class="lightbox__container">
-               </div>
-           </div>
-        `);
+export class Lightbox {
+    constructor(listMedia) {
+        this.listMedia = listMedia;
+        this.onKeyUp = this.onKeyUp.bind(this)
     }
 
-    /* Ouvre la lightbox */    
-    static open(media) {
-        const lightBox = document.querySelector(".lightbox");
-        lightBox.style.display = "block";
+    /* Initialisation du DOM */  
+    init() {
+        const lightbox = document.createElement('div');
+        lightbox.className ='lightbox';
+        lightbox.style.display = 'none';
+        const close = document.createElement('i');
+        close.className = 'fas fa-times lightbox__close';
+        lightbox.append(close)
+        const next = document.createElement('i');
+        next.className = 'fas fa-angle-right lightbox__next';
+        lightbox.append(next)
+        const prev = document.createElement('i');
+        prev.className = 'fas fa-angle-left lightbox__prev';
+        lightbox.append(prev)
+        const container = document.createElement('div');
+        container.className = 'lightbox__container';
+        lightbox.append(container)
+        document.querySelector('main').append(lightbox)
+        document.addEventListener('keyup', this.onKeyUp.bind(this))
+
+        close.addEventListener('click', () => {
+            this.close();
+        })
+
+        next.addEventListener('click', () => {
+            this.next();
+        })
+
+        prev.addEventListener('click', () => {
+            this.prev();
+        })
+    }
+
+    /* Ouvre la lightbox */  
+    open(media) {
+        this.visibleMedia = media;
+        const lightbox = document.querySelector('.lightbox');
+        lightbox.style.display = 'block';
         media.load();
     }
 
-    /* Change de slide */    
-    static switch(media) {
-        const arrowRight = document.querySelector(".lightbox__next");
-        arrowRight.addEventListener("click", () => {
-            media.next();
-        })
+    /* Navigation des slides vers la droite */
+    next() {
+        const mediaDom = document.querySelectorAll('.media');
+        let etape = mediaList.indexOf(this.visibleMedia);
+        etape++;
+        if (etape >= mediaDom.length) {
+            etape = 0;
+        }
+        const container = document.querySelector('.lightbox__container');
+        container.textContent = "";
+        this.visibleMedia = mediaList[etape];
+        mediaList[etape].load();
+    }
+
+    /* Navigation des slides vers la gauche */
+    prev() {
+        const mediaDom = document.querySelectorAll('.media');
+        let etape = mediaList.indexOf(this.visibleMedia);
+        etape--;
+        if (etape <= -1) {
+            etape = mediaDom.length-1;
+        }
+        const container = document.querySelector('.lightbox__container');
+        container.textContent = "";
+        this.visibleMedia = mediaList[etape];
+        mediaList[etape].load();
     }
 
     /* Ferme la lightbox */  
-    static close() {
-        const lightBox = document.querySelector(".lightbox");
-        const content = document.querySelector(".lightbox__container");
-        const btnClose = document.querySelector(".lightbox__close");
-        btnClose.addEventListener("click", () => {
-            lightBox.style.display = "none";
-            content.textContent = "";
-        });
+    close() {
+        const lightbox = document.querySelector(".lightbox");
+        lightbox.style.display = 'none';
+        document.querySelector(".lightbox__container").innerHTML = "";
+        document.removeEventListener('keyup', this.onKeyUp)
     }
 
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/**
-  static init() {
-        const dom = document.createElement('div')
-        dom.classList.add('lightbox')
-        dom.innerHTML = `<i class="fas fa-times lightbox__close"></i>
-        <i class="fas fa-angle-right lightbox__next"></i>
-        <i class="fas fa-angle-left lightbox__prev"></i>
-            <div class="lightbox__container">
-                <img src="" alt="">
-            </div>`
-        return dom
-    }
-
-    static consTructor(url) {
-        this.element = this.init(url)
-        this.loadImage(url)
-        document.body.appendChild(this.element)
-    }
-
-    static loadImage(url) {
-        const image = new Image()
-        const container = this.element.querySelector(".lightbox__container")
-        image.src = url
-        image.onload = function () {
-            container.appendChild(image)
+    /* Navigation au clavier de la lightbox */ 
+    onKeyUp(e) { 
+        if (e.key === 'Escape') { /* Fermeture */ 
+            this.close(e)
+        } else if (e.key === 'ArrowRight') { /* Navigation vers la droite */ 
+            this.next(e)
+        } else if (e.key === 'ArrowLeft') { /* Navigation vers la gauche*/ 
+            this.prev(e)
         }
     }
-
-    static closeModal() {
-        const lightBox = document.querySelector(".lightbox");
-        const content = document.querySelector(".lightbox__container");
-        const btnClose = document.querySelector(".lightbox__close");
-        btnClose.addEventListener("click", () => {
-            lightBox.style.display = "none";
-            content.textContent = "";
-        });
-    }
-
-    static changeSlide(media) {
-        const content = document.querySelector(".lightbox__container");
-        const arrowRight = document.querySelector(".lightbox__next");
-        arrowRight.addEventListener("click", () => {
-            content.textContent = "";
-            media.renderPopup();
-        })
-    }
- */
-   
-
-
-/**
-static init() {
-    const links = document.querySelectorAll(".album")
-        .forEach(link => link.addEventListener('click', e => {
-            e.preventDefault()
-            new Lightbox(e.currentTarget.getAttribute('album'))
-        }))
 }
-
-constructor(url) {
-    this.element = this.buildDOM(url)
-    this.loadImage(url)
-    document.body.appendChild(this.element)
-}
-
- loadImage(url) {
-    const image = new Image()
-    image.src = url
-    const container =  this.element.querySelector('lightbox__container')
-    container.appendChild(image)
-}
-
- buildDOM(url) {
-    const dom = document.createElement('div')
-    dom.classList.add('lightbox')
-    dom.innerHTML = `<i class="fas fa-times lightbox__close"></i>
-    <i class="fas fa-angle-right lightbox__next"></i>
-    <i class="fas fa-angle-left lightbox__prev"></i>
-        <div class="lightbox__container">
-            <img src="${url}" alt="">
-        </div>`
-    return dom
-}
-
-
-    <div class="lightbox">
-    <i class="fas fa-times lightbox__close"></i>
-    <i class="fas fa-angle-right lightbox__next"></i>
-    <i class="fas fa-angle-left lightbox__prev"></i>
-    <div class="lightbox__container">
-        <img src="" alt="">
-    </div>
-    </div>
-
-
-*/

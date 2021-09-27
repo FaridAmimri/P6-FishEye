@@ -21,6 +21,7 @@ export class Video {
         container.append(photo)
         const link = document.createElement("a")
         const diapo = document.createElement("video");
+        diapo.className = "media";
         diapo.src = this.video;
         link.append(diapo)
         photo.append(link)
@@ -55,17 +56,10 @@ export class Video {
     load() {
         const content = document.querySelector(".lightbox__content");
         const video = document.createElement("video");
-        video.src = null;
         video.src = this.video;
         content.append(video);
     }
 
-    next() {
-        const content = document.querySelector(".lightbox__container");
-        let i = this.video;
-        content.textContent = "";
-        this.load(this.video[i++]);
-        
-    }
+    
 }
 

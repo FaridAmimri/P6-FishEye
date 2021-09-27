@@ -21,6 +21,7 @@ export class Image {
         container.append(photo)
         const link = document.createElement("a")
         const diapo = document.createElement("img");
+        diapo.className = "media";
         diapo.src = this.image;
         link.append(diapo)
         photo.append(link)
@@ -53,18 +54,10 @@ export class Image {
     }
 
     load() {
-        const content = document.querySelector(".lightbox__container");
+        const container = document.querySelector(".lightbox__container");
         const image = document.createElement("img");
-        image.src = null;
         image.src = this.image;
-        content.append(image);
-    }
-
-    next() {
-        const content = document.querySelector(".lightbox__container");
-        let i = this.image;
-        content.textContent = "";
-        this.load(this.image[i++]);
+        container.append(image);
     }
 }
 
