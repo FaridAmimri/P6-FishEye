@@ -6,6 +6,7 @@ import { displayLikes } from "./function/display.js";
 import { Lightbox } from "./class/lightbox.js";
 
 export const mediaList = [];
+export const mediaDom = document.querySelectorAll('.media');
 export function getTotalLikes(medias) {
     let total = 0;
     for (let i = 0; i < medias.length; i++) {
@@ -54,28 +55,26 @@ fetch("./FishEyeData.json")
         }
 
         let totalLikes = getTotalLikes(mediaList);
-
+        console.log(totalLikes);
         for (let i = 0; i < result.photographers.length; i++) {
-
             if (result.photographers[i].id === photographerId) {
                 displayLikes(result.photographers[i].price);
             }
         }
+        
+        const myLightbox = new Lightbox(mediaList);
+        myLightbox.init();
 
-        const openMediaList = document.querySelectorAll('.album');
-        for (let i = 0; i < openMediaList.length; i++) {
-            openMediaList[i].addEventListener("click", () => {
-                Lightbox.init();
-                Lightbox.open(mediaList[i]);
-
-                Lightbox.switch(mediaList[i + 1]);
-
-                Lightbox.close();
+        const mediaDom = document.querySelectorAll('.media');
+        for (let i = 0; i < mediaDom.length; i++) {
+            mediaDom[i].addEventListener('click', () => {
+                myLightbox.open(mediaList[i]);
             });
         }
+        
+        
 
+    })
 
-
-    });
 
 
