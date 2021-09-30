@@ -1,18 +1,28 @@
 import {mediaList, getTotalLikes} from "../photograph.js";
 
-export function displayLikes(price) {
+export function displayLikes() {
     let totalLikes = getTotalLikes(mediaList);
 
-    const resultLikes = document.createElement("div");
-    resultLikes.className = "totaloflikes";
-    const nblikes = document.createElement("p");
-    nblikes.textContent = totalLikes;
-    nblikes.className = "far fa-heart"
-    resultLikes.append(nblikes);
-    const money = document.createElement("p");
-    money.textContent = price + "€/jour"; 
-    resultLikes.append(money);
+    const display = document.createElement("div");
+    display.className = "display";
+    const likes = document.createElement("p");
+    likes.textContent = totalLikes;
+    likes.className = "far fa-heart totallikes"
     
-    document.querySelector('main').append(resultLikes);
+    display.append(likes);
+    
+    document.querySelector('main').append(display);
 }
 
+export function displayPrice(price) {
+    const display = document.querySelector(".display");
+
+    const money = document.createElement("p");
+    money.textContent = ""; 
+    money.textContent = price + "€/jour"; 
+    money.className = "price";
+
+    display.append(money);
+
+    document.querySelector('main').append(display);
+}
