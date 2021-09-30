@@ -21,9 +21,13 @@ export class Lightbox {
         const prev = document.createElement('i');
         prev.className = 'fas fa-angle-left lightbox__prev';
         lightbox.append(prev)
+        const title = document.createElement('p');
+        title.className = 'lightbox__title';
+        lightbox.append(title)
         const container = document.createElement('div');
         container.className = 'lightbox__container';
         lightbox.append(container)
+
         document.querySelector('main').append(lightbox)
         document.addEventListener('keyup', this.onKeyUp.bind(this))
 
@@ -84,7 +88,7 @@ export class Lightbox {
         document.removeEventListener('keyup', this.onKeyUp)
     }
 
-    /* Navigation au clavier de la lightbox */ 
+    /* Navigation au clavier */ 
     onKeyUp(e) { 
         if (e.key === 'Escape') { /* Fermeture */ 
             this.close(e)

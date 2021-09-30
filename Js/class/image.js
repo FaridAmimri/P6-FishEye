@@ -1,4 +1,3 @@
-import { displayLikes } from "../function/display.js";
 import { mediaList, getTotalLikes } from "../photograph.js";
 
 export class Image {
@@ -14,50 +13,60 @@ export class Image {
     }
 
     render() {
-        const container = document.createElement("div");
-        container.className = "album";
-        const photo = document.createElement("div");
-        photo.className = "photo";
-        container.append(photo)
+        const shoot = document.createElement("div");
+        shoot.className = "shoot";
+       
         const link = document.createElement("a")
         const diapo = document.createElement("img");
         diapo.className = "media";
         diapo.src = this.image;
         link.append(diapo)
-        photo.append(link)
-        container.append(photo)
-        const like = document.createElement("div");
-        like.className = "like";
-        photo.append(like)
-        container.append(photo)
-        const paragraph = document.createElement("p");
-        paragraph.textContent = this.title;
-        like.append(paragraph)
-        photo.append(like)
-        container.append(photo)
+        shoot.append(link)
+        
+        const data = document.createElement("div");
+        data.className = "data";
+        shoot.append(data)
+        
+        const title = document.createElement("p");
+        title.className = "title";
+        title.textContent = this.title;
+        data.append(title)
+        shoot.append(data)
+        
         const heart = document.createElement("p");
         heart.className = "far fa-heart";
         heart.textContent = this.likes;
-        like.append(heart)
-        photo.append(like)
-        container.append(photo)
+        data.append(heart)
+        shoot.append(data)
 
         heart.addEventListener("click", () => {
             this.likes += 1;
             heart.textContent = this.likes;
             let totalLikes = getTotalLikes(mediaList);
-            console.log(totalLikes);
-            displayLikes();
+
+            const likes = document.querySelector(".totallikes");
+            likes.textContent = "";
+            likes.textContent = totalLikes;
         })
 
-        document.querySelector('main').append(container);
+        const article = document.querySelector('article')
+        article.append(shoot)
+        document.querySelector('main').append(article)
     }
+
+    // displayPrice() {
+    //     const price = document.createElement("p");
+    //     price.className = "price";
+    //     price.textContent = this.price;
+    // }
 
     load() {
         const container = document.querySelector(".lightbox__container");
         const image = document.createElement("img");
         image.src = this.image;
-        container.append(image);
+        container.append(image)
+        const title = document.querySelector(".lightbox__title");
+        title.textContent = this.title;
     }
 }
 
