@@ -7,7 +7,7 @@ body {
     font-family: DM Sans;
     margin: 45px 20px;
 }
-button {
+main .contact_me {
     position: fixed;
     left: 32.53%;
     right: 32%;
@@ -48,7 +48,7 @@ button {
         padding: 10px;
     }
 }
-.like {
+.data {
     display: flex;
     align-items: baseline;
     justify-content:space-between;
@@ -56,6 +56,8 @@ button {
     color: #901C1C;
 }
 .fa-heart {
+    display: flex;
+    flex-direction: row-reverse;
     font-weight: bold;
     margin-left: 5px;
 }
@@ -71,7 +73,7 @@ header {
 /* main */
 main {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: space-between;
     .photographer {
         display: flex;
@@ -111,14 +113,14 @@ main {
     li {
         @include li
     }
-    .photo {
+    .shoot {
         width: 100%;
         height: 190px;
         border-radius: 5px;
         object-fit: cover;
         margin-bottom: 50px;
     }
-    .photo img, .photo video {
+    .shoot img, .shoot video {
         width: 100%;
         height: 100%;
         border-radius: 5px;
@@ -132,7 +134,7 @@ main {
         align-content: space-around;
         align-items: center;
     }
-    .totaloflikes {
+    .display {
         display: flex;
         position: fixed;
         right: 0px;
@@ -151,9 +153,13 @@ main {
         }
     }
 }
+article {
+    display: flex;
+    flex-direction: column;
+}
 
 /* Modal form */
-.dialog {
+.form {
     display: none;
     position: fixed;
     z-index: 1;
@@ -259,9 +265,76 @@ form h1 {
     line-height: 47px;
     color: #000000;
 }
-.formData {
+.data-form {
     width: 85%;
     margin: auto;
+}
+
+/* Lightbox */
+
+.lightbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left:0;
+    box-sizing: border-box;
+    width: 100vw;
+    height: 100vh;
+    background: #FFFFFF;
+    padding: 15px;
+    z-index: 100;
+}
+.lightbox__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.lightbox__container img,
+.lightbox__container video {
+    width: 85%;
+    height: 50%;
+    box-sizing: border-box;
+    border-radius: 5px;
+    object-fit: cover;
+}
+.lightbox__close {
+    position: absolute;
+    top: 26%;
+    right: 0%;
+    padding: 0 10px;
+    font-size: 30px;
+    cursor: pointer;
+    color: $primarycolor;
+}
+.lightbox__next {
+    position: absolute;
+    top: 50%;
+    right: 2%;
+    font-size: 35px;
+    color: $primarycolor;
+    cursor: pointer;
+}
+.lightbox__prev {
+    position: absolute;
+    top: 50%;
+    left: 2%;
+    font-size: 35px;
+    color: $primarycolor;
+    cursor: pointer;
+}
+.lightbox__close:hover, .lightbox__prev:hover, .lightbox__next:hover {
+    color:rgba(0, 0, 0, 0.8);
+}
+.lightbox__title {
+    position: absolute;
+    top: 74%;
+    left: 10%;
+    font-size: 25px;
+    color: $primarycolor;
 }
 
 /* Responsive for Tablet */
@@ -274,6 +347,8 @@ form h1 {
         margin-bottom: 40px;
     }
     main {
+        flex-wrap: wrap;
+        flex-direction: initial;
         .photographer {
             background: $backgroundcolor;
             border-radius: 5px;
@@ -296,14 +371,44 @@ form h1 {
             height: auto;
             justify-content: space-between;
         }
-        .photo {
+        .shoot {
             width: 330px;
             height: 300px;
         }
     }
+    article {
+        flex-wrap: wrap;
+        flex-direction: initial;
+        justify-content: space-between;
+    }
+
+    /* Lightbox */
+    .lightbox__container img,
+    .lightbox__container video {
+        width: 70%;
+        height: 60%;
+    }
+    .lightbox__close {
+        right: 10%;
+        font-size: 35px;
+        top: 21%;
+    }
+    .lightbox__next {
+        font-size: 40px;
+        right: 11%;
+    }
+    .lightbox__prev {
+        font-size: 40px;
+        left: 11%;
+    }
+    .lightbox__title {
+        top: 79%;
+        left: 16%;
+    }
 }
 
 /* Responsive for Desktop */
+
 @media #{$large-up} {
     body {
         margin: auto;
@@ -327,7 +432,7 @@ form h1 {
             display: block;
         }
         h1 {
-            font-size: 64px;
+            font-size: 55px;
         }
         p {
             font-size: 20px;
@@ -343,10 +448,10 @@ form h1 {
             font-size: 18px;
             border-radius: 12px;
         }
-        button {
+        .contact_me {
             position: absolute;
             top: 20%;
-            left: 450px;
+            left: 460px;
             width: 170px;
             height: 69px;
             
@@ -359,16 +464,17 @@ form h1 {
             width: 200px;
             height: 200px;
         }
-        .photo {
+        .shoot {
             width: 300px;
             height: 300px;
         }
-        .totaloflikes {
+        .display {
             right: 25px;
             width: 300px;
             font-size: 24px;
         }
     }
+
     /* Modal form */
     .content {
         max-width: 669px;
@@ -384,4 +490,28 @@ form h1 {
         width: 170px;
         margin-left: 50px;
     }
-}
+    
+    /* Lightbox */
+    .lightbox__container img,
+    .lightbox__container video {
+        width: 75%;
+        height: 95%;
+    }
+    .lightbox__close {
+        right: 9%;
+        font-size: 40px;
+        top: 4%;
+    }
+    .lightbox__next {
+        font-size: 50px;
+        right: 10%;
+    }
+    .lightbox__prev {
+        font-size: 50px;
+        left: 10%;
+    }
+    .lightbox__title {
+        top: 96%;
+        left: 14%;
+    }
+}    

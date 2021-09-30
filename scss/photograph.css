@@ -9,7 +9,7 @@ body {
   margin: 45px 20px;
 }
 
-button {
+main .contact_me {
   position: fixed;
   left: 32.53%;
   right: 32%;
@@ -53,7 +53,7 @@ button {
   padding: 10px;
 }
 
-.like {
+.data {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -68,6 +68,13 @@ button {
 }
 
 .fa-heart {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
   font-weight: bold;
   margin-left: 5px;
 }
@@ -86,8 +93,10 @@ main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -166,7 +175,7 @@ main li {
   margin-bottom: 10px;
 }
 
-main .photo {
+main .shoot {
   width: 100%;
   height: 190px;
   border-radius: 5px;
@@ -175,7 +184,7 @@ main .photo {
   margin-bottom: 50px;
 }
 
-main .photo img, main .photo video {
+main .shoot img, main .shoot video {
   width: 100%;
   height: 100%;
   border-radius: 5px;
@@ -200,7 +209,7 @@ main .album {
           align-items: center;
 }
 
-main .totaloflikes {
+main .display {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -221,13 +230,23 @@ main .totaloflikes {
   font-size: 15px;
 }
 
-main .totaloflikes p {
+main .display p {
   padding: 20px;
   font-weight: bold;
 }
 
+article {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
 /* Modal form */
-.dialog {
+.form {
   display: none;
   position: fixed;
   z-index: 1;
@@ -365,9 +384,97 @@ form h1 {
   color: #000000;
 }
 
-.formData {
+.data-form {
   width: 85%;
   margin: auto;
+}
+
+/* Lightbox */
+.lightbox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  background: #FFFFFF;
+  padding: 15px;
+  z-index: 100;
+}
+
+.lightbox__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.lightbox__container img,
+.lightbox__container video {
+  width: 85%;
+  height: 50%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 5px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.lightbox__close {
+  position: absolute;
+  top: 26%;
+  right: 0%;
+  padding: 0 10px;
+  font-size: 30px;
+  cursor: pointer;
+  color: #901C1C;
+}
+
+.lightbox__next {
+  position: absolute;
+  top: 50%;
+  right: 2%;
+  font-size: 35px;
+  color: #901C1C;
+  cursor: pointer;
+}
+
+.lightbox__prev {
+  position: absolute;
+  top: 50%;
+  left: 2%;
+  font-size: 35px;
+  color: #901C1C;
+  cursor: pointer;
+}
+
+.lightbox__close:hover, .lightbox__prev:hover, .lightbox__next:hover {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.lightbox__title {
+  position: absolute;
+  top: 74%;
+  left: 10%;
+  font-size: 25px;
+  color: #901C1C;
 }
 
 /* Responsive for Tablet */
@@ -377,6 +484,14 @@ form h1 {
     width: 90%;
     margin-top: 40px;
     margin-bottom: 40px;
+  }
+  main {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-orient: initial;
+    -webkit-box-direction: initial;
+        -ms-flex-direction: initial;
+            flex-direction: initial;
   }
   main .photographer {
     background: #FAFAFA;
@@ -405,9 +520,43 @@ form h1 {
         -ms-flex-pack: justify;
             justify-content: space-between;
   }
-  main .photo {
+  main .shoot {
     width: 330px;
     height: 300px;
+  }
+  article {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-orient: initial;
+    -webkit-box-direction: initial;
+        -ms-flex-direction: initial;
+            flex-direction: initial;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  /* Lightbox */
+  .lightbox__container img,
+  .lightbox__container video {
+    width: 70%;
+    height: 60%;
+  }
+  .lightbox__close {
+    right: 10%;
+    font-size: 35px;
+    top: 21%;
+  }
+  .lightbox__next {
+    font-size: 40px;
+    right: 11%;
+  }
+  .lightbox__prev {
+    font-size: 40px;
+    left: 11%;
+  }
+  .lightbox__title {
+    top: 79%;
+    left: 16%;
   }
 }
 
@@ -441,7 +590,7 @@ form h1 {
     display: block;
   }
   main h1 {
-    font-size: 64px;
+    font-size: 55px;
   }
   main p {
     font-size: 20px;
@@ -457,10 +606,10 @@ form h1 {
     font-size: 18px;
     border-radius: 12px;
   }
-  main button {
+  main .contact_me {
     position: absolute;
     top: 20%;
-    left: 450px;
+    left: 460px;
     width: 170px;
     height: 69px;
   }
@@ -472,11 +621,11 @@ form h1 {
     width: 200px;
     height: 200px;
   }
-  main .photo {
+  main .shoot {
     width: 300px;
     height: 300px;
   }
-  main .totaloflikes {
+  main .display {
     right: 25px;
     width: 300px;
     font-size: 24px;
@@ -497,6 +646,29 @@ form h1 {
     height: 69px;
     width: 170px;
     margin-left: 50px;
+  }
+  /* Lightbox */
+  .lightbox__container img,
+  .lightbox__container video {
+    width: 75%;
+    height: 95%;
+  }
+  .lightbox__close {
+    right: 9%;
+    font-size: 40px;
+    top: 4%;
+  }
+  .lightbox__next {
+    font-size: 50px;
+    right: 10%;
+  }
+  .lightbox__prev {
+    font-size: 50px;
+    left: 10%;
+  }
+  .lightbox__title {
+    top: 96%;
+    left: 14%;
   }
 }
 /*# sourceMappingURL=photograph.css.map */
