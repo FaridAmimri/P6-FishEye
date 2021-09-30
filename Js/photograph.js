@@ -1,8 +1,8 @@
 import { Image } from "./class/image.js";
 import { Video } from "./class/video.js";
 import { viewPhotograph } from "./function/view.js";
-import { selectionPhotograph } from "./function/selection.js";
-import { displayLikes } from "./function/display.js";
+import { selectionSort } from "./function/selection.js";
+import { displayLikes, displayPrice } from "./function/display.js";
 import { Lightbox } from "./class/lightbox.js";
 
 export const mediaList = [];
@@ -32,7 +32,7 @@ fetch("./FishEyeData.json")
             }
         }
 
-        selectionPhotograph();
+        selectionSort();
 
         for (let i = 0; i < result.media.length; i++) {
             let newMedia;
@@ -55,13 +55,14 @@ fetch("./FishEyeData.json")
         }
 
         let totalLikes = getTotalLikes(mediaList);
-        console.log(totalLikes);
+
         for (let i = 0; i < result.photographers.length; i++) {
             if (result.photographers[i].id === photographerId) {
-                displayLikes(result.photographers[i].price);
+                displayLikes();
+                displayPrice(result.photographers[i].price);
             }
         }
-        
+
         const myLightbox = new Lightbox(mediaList);
         myLightbox.init();
 
@@ -71,10 +72,63 @@ fetch("./FishEyeData.json")
                 myLightbox.open(mediaList[i]);
             });
         }
-        
-        
+
+        const popularity = document.querySelector('.popularity')
+        console.log(popularity)
+
+        popularity.addEventListener('click', () => {
+            mediaList.sort((a, b) => {
+                if (a.likes < b.likes) return -1
+                if (a.likes > b.likes) return 1
+                return 0
+            })
+
+            document.querySelector('article').innerHTML = "";
+
+            for (let i = 0; i < mediaList.length; i++) {
+                mediaList[i].render();
+            }
+        })
+
+        const date = document.querySelector('.date')
+        console.log(date)
+
+        date.addEventListener('click', () => {
+            mediaList.sort((a, b) => {
+                if (a.date < b.date) return -1
+                if (a.date > b.date) return 1
+                return 0
+            })
+
+            document.querySelector('article').innerHTML = "";
+
+            for (let i = 0; i < mediaList.length; i++) {
+                mediaList[i].render();
+            }
+        })
+
+        const title = document.querySelector('.title')
+        console.log(title)
+
+        title.addEventListener('click', () => {
+            mediaList.sort((a, b) => {
+                if (a.title < b.title) return -1
+                if (a.title > b.title) return 1
+                return 0
+            })
+
+            document.querySelector('article').innerHTML = "";
+
+            for (let i = 0; i < mediaList.length; i++) {
+                mediaList[i].render();
+            }
+        })
+
+        const contactMe = document.querySelector('.contact_me')
+        const form = document.querySelector('.form')
+
+        contactMe.addEventListener('click', () => {
+            form.style.display = 'block';
+        })
 
     })
-
-
-
