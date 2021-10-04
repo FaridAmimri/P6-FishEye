@@ -54,12 +54,6 @@ export class Image {
         document.querySelector('main').append(article)
     }
 
-    // displayPrice() {
-    //     const price = document.createElement("p");
-    //     price.className = "price";
-    //     price.textContent = this.price;
-    // }
-
     load() {
         const container = document.querySelector(".lightbox__container");
         const image = document.createElement("img");

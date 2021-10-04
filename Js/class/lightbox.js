@@ -1,5 +1,4 @@
 import { mediaList, mediaDom } from "../photograph.js";
-import { Image } from "./image.js";
 
 export class Lightbox {
     constructor(listMedia) {
@@ -7,7 +6,7 @@ export class Lightbox {
         this.onKeyUp = this.onKeyUp.bind(this)
     }
 
-    /* Initialisation du DOM */  
+    /* Initialisation du DOM */
     init() {
         const lightbox = document.createElement('div');
         lightbox.className ='lightbox';
@@ -51,7 +50,7 @@ export class Lightbox {
         lightbox.style.display = 'block';
         media.load();
     }
-
+    
     /* Navigation des slides vers la droite */
     next() {
         const mediaDom = document.querySelectorAll('.media');
