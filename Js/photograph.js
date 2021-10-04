@@ -4,6 +4,7 @@ import { viewPhotograph } from "./function/view.js";
 import { selectionSort } from "./function/selection.js";
 import { displayLikes, displayPrice } from "./function/display.js";
 import { Lightbox } from "./class/lightbox.js";
+import { Form } from "./class/form.js";
 
 export const mediaList = [];
 export const mediaDom = document.querySelectorAll('.media');
@@ -55,7 +56,7 @@ fetch("./FishEyeData.json")
         }
 
         let totalLikes = getTotalLikes(mediaList);
-
+        console.log(totalLikes)
         for (let i = 0; i < result.photographers.length; i++) {
             if (result.photographers[i].id === photographerId) {
                 displayLikes();
@@ -63,6 +64,7 @@ fetch("./FishEyeData.json")
             }
         }
 
+        /* lightbox */
         const myLightbox = new Lightbox(mediaList);
         myLightbox.init();
 
@@ -73,8 +75,9 @@ fetch("./FishEyeData.json")
             });
         }
 
+        /* select media by popularity  */
         const popularity = document.querySelector('.popularity')
-        console.log(popularity)
+        // console.log(popularity)
 
         popularity.addEventListener('click', () => {
             mediaList.sort((a, b) => {
@@ -90,8 +93,9 @@ fetch("./FishEyeData.json")
             }
         })
 
+        /* select media by date */
         const date = document.querySelector('.date')
-        console.log(date)
+        // console.log(date)
 
         date.addEventListener('click', () => {
             mediaList.sort((a, b) => {
@@ -107,8 +111,9 @@ fetch("./FishEyeData.json")
             }
         })
 
+        /* select media by title */
         const title = document.querySelector('.title')
-        console.log(title)
+        // console.log(title)
 
         title.addEventListener('click', () => {
             mediaList.sort((a, b) => {
@@ -124,11 +129,24 @@ fetch("./FishEyeData.json")
             }
         })
 
-        const contactMe = document.querySelector('.contact_me')
-        const form = document.querySelector('.form')
-
-        contactMe.addEventListener('click', () => {
-            form.style.display = 'block';
-        })
-
+        /* registration form */
+        const myForm = new Form()
+        myForm.submit()
+        
+        const openModal = document.querySelector('.contact_me')
+        const closeModal = document.querySelector('.close')
+       
+        for (let i = 0; i < result.photographers.length; i++) {
+            if (result.photographers[i].id === photographerId) {
+                /* launch modal form onclick */
+                openModal.addEventListener('click', () => {
+                    myForm.open(result.photographers[i].name)
+                })
+                /* close modal form onclick */
+                closeModal.addEventListener('click', () => {
+                    myForm.close()
+                }) 
+            }   
+        }
     })
+
