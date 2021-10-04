@@ -115,31 +115,33 @@
     </main>
 
     <footer>
-        <div class="form">
+        <div class="modal" display="none">
             <div class="content">
                 <span class="close"></span>
                 <div class="modal-body"></div>
-                <form id="modal-form" action="index.html" method="get">
-                    <h1>Contactez-moi<br>
-                        Mimi keel</h1>
-                    <div class="data-form">
-                        <label>Prénom</label><br>
-                        <input class="text-control" type="text" id="first" name="first" minlength="2" /><br>
-                    </div>
-                    <div class="data-form">
-                        <label>Nom</label><br>
-                        <input class="text-control" type="text" id="last" name="last" /><br>
-                    </div>
-                    <div class="data-form">
-                        <label>E-mail</label><br>
-                        <input class="text-control" type="email" id="email" name="email" /><br>
-                    </div>
-                    <div class="data-form">
-                        <label>Votre message</label><br>
-                        <input class="text-message" type="text" id="message" name="message" /><br>
-                    </div>
-                    <input class="btn-submit button" type="submit" value="Envoyer" />
-                </form>
+                    <form novalidate id="modal-form" action="photograph.html" method="get">
+                        <h1>
+                            <p>Contactez-moi</p>
+                            <p id="photographer"></p>
+                        </h1>
+                        <div class="data-form">
+                            <label>Prénom</label><br>
+                            <input class="text-control" type="text" id="first" name="first" /><br>
+                        </div>
+                        <div class="data-form">
+                            <label>Nom</label><br>
+                            <input class="text-control" type="text" id="last" name="last" /><br>
+                        </div>
+                        <div class="data-form">
+                            <label>E-mail</label><br>
+                            <input class="text-control" type="email" id="email" name="email" /><br>
+                        </div>
+                        <div class="data-form">
+                            <label>Votre message</label><br>
+                            <input class="text-message" type="text" id="message" name="message" /><br>
+                        </div>
+                        <input class="btn-submit" type="submit" class="button" value="Envoyer" />
+                    </form>
             </div>
         </div>
     </footer>
