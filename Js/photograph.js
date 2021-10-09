@@ -24,12 +24,29 @@ fetch("./FishEyeData.json")
         const photographerId = Number(param.get("id"));
         let activePhotographerData = {};
 
+        /* registration form */
+        const myForm = new Form()
+        myForm.submit()
+
+
         for (let i = 0; i < result.photographers.length; i++) {
 
             if (result.photographers[i].id === photographerId) {
 
+                /* display photographers details */
                 activePhotographerData = result.photographers[i];
                 viewPhotograph(result.photographers[i].name, result.photographers[i].id, result.photographers[i].city, result.photographers[i].country, result.photographers[i].tagline, result.photographers[i].tags, result.photographers[i].portrait);
+                
+                /* launch modal form onclick */
+                const openModal = document.querySelector('.contact_me')
+                openModal.addEventListener('click', () => {
+                    myForm.open(result.photographers[i].name)
+                })
+                /* close modal form onclick */
+                const closeModal = document.querySelector('.close')
+                closeModal.addEventListener('click', () => {
+                    myForm.close()
+                })
             }
         }
 
@@ -75,78 +92,49 @@ fetch("./FishEyeData.json")
             });
         }
 
-        /* select media by popularity  */
-        const popularity = document.querySelector('.popularity')
-        // console.log(popularity)
+        /* sorting medias by selected option */
+        const select = document.querySelector('#option-select')
 
-        popularity.addEventListener('click', () => {
-            mediaList.sort((a, b) => {
-                if (a.likes < b.likes) return -1
-                if (a.likes > b.likes) return 1
-                return 0
-            })
-
-            document.querySelector('article').innerHTML = "";
-
-            for (let i = 0; i < mediaList.length; i++) {
-                mediaList[i].render();
-            }
-        })
-
-        /* select media by date */
-        const date = document.querySelector('.date')
-        // console.log(date)
-
-        date.addEventListener('click', () => {
-            mediaList.sort((a, b) => {
-                if (a.date < b.date) return -1
-                if (a.date > b.date) return 1
-                return 0
-            })
-
-            document.querySelector('article').innerHTML = "";
-
-            for (let i = 0; i < mediaList.length; i++) {
-                mediaList[i].render();
-            }
-        })
-
-        /* select media by title */
-        const title = document.querySelector('.title')
-        // console.log(title)
-
-        title.addEventListener('click', () => {
-            mediaList.sort((a, b) => {
-                if (a.title < b.title) return -1
-                if (a.title > b.title) return 1
-                return 0
-            })
-
-            document.querySelector('article').innerHTML = "";
-
-            for (let i = 0; i < mediaList.length; i++) {
-                mediaList[i].render();
-            }
-        })
-
-        /* registration form */
-        const myForm = new Form()
-        myForm.submit()
-        
-        const openModal = document.querySelector('.contact_me')
-        const closeModal = document.querySelector('.close')
-       
-        for (let i = 0; i < result.photographers.length; i++) {
-            if (result.photographers[i].id === photographerId) {
-                /* launch modal form onclick */
-                openModal.addEventListener('click', () => {
-                    myForm.open(result.photographers[i].name)
+        select.addEventListener('change', (e) => {
+            /* select media by popularity */
+            if (e.target.value === 'popularity') {
+                mediaList.sort((a, b) => {
+                    if (a.likes < b.likes) return -1
+                    if (a.likes > b.likes) return 1
+                    return 0
                 })
-                /* close modal form onclick */
-                closeModal.addEventListener('click', () => {
-                    myForm.close()
-                }) 
-            }   
-        }
+                document.querySelector('article').innerHTML = "";
+
+                for (let i = 0; i < mediaList.length; i++) {
+                    mediaList[i].render();
+                }
+            }
+            /* select media by date */
+            if (e.target.value === 'date') {
+                mediaList.sort((a, b) => {
+                    if (a.date < b.date) return -1
+                    if (a.date > b.date) return 1
+                    return 0
+                })
+                document.querySelector('article').innerHTML = "";
+
+                for (let i = 0; i < mediaList.length; i++) {
+                    mediaList[i].render();
+                }
+            }
+            /* select media by title */
+            if (e.target.value === 'title') {
+                mediaList.sort((a, b) => {
+                    if (a.title < b.title) return -1
+                    if (a.title > b.title) return 1
+                    return 0
+                })
+                document.querySelector('article').innerHTML = "";
+
+                for (let i = 0; i < mediaList.length; i++) {
+                    mediaList[i].render();
+                }
+            }
+        })
     })
 
