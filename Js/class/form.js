@@ -1,30 +1,32 @@
 export class Form {
     constructor(photograph) {
         this.photograph = photograph
+        this.onKeyUp = this.onKeyUp.bind(this)
     }
 
-    /* Ouvre le formulaire */
-    open(media) {
+    /* open the form */
+    open(fullname) {
         const modal = document.querySelector('.modal')
         modal.style.display = 'block'
-
-        const form = document.querySelector('form')
-        const profil = document.querySelector('form h1')
         const contact = document.querySelector('#photographer')
-        const photographer = media
-
-        contact.append(photographer)
-        profil.append(contact)
-        form.append(profil)
+        contact.textContent = fullname
     }
 
-    /* Ferme le formulaire */
+    /* close the form */
     close() {
+        const form = document.querySelector('form')
         const modal = document.querySelector('.modal')
         modal.style.display = 'none'
+        form.style.display = "block"
+    }
+    /* closing modal form by escape touch*/
+    onKeyUp(e) {
+        if (e.key === 'Escape') {
+            this.close(e)
+        }
     }
 
-    /* Validation du prénom */
+    /* firstname validator */
     firstNameCheck() {
         const firstName = document.querySelector('#first')
         const divParent = firstName.parentNode
@@ -38,7 +40,7 @@ export class Form {
         }
     }
 
-    /* Validation du nom */
+    /* lastname validator */
     lastNameCheck() {
         const lastName = document.querySelector('#last')
         const divParent = lastName.parentNode
@@ -52,7 +54,7 @@ export class Form {
         }
     }
 
-    /* Validation de l'email */
+    /* email validator */
     emailCheck() {
         const email = document.querySelector('#email')
         const divParent = email.parentNode
@@ -67,7 +69,7 @@ export class Form {
         }
     }
 
-    /* Validation du message */
+    /* message validator */
     messageCheck() {
         const message = document.querySelector('#message')
         const divParent = message.parentNode
@@ -81,8 +83,9 @@ export class Form {
         }
     }
 
-    /* Soumission du formulaire */
+    /* submission form */
     submit() {
+        document.addEventListener('keyup', this.onKeyUp.bind(this))
         const form = document.querySelector('form')
         form.addEventListener('submit', (e) => {
             e.preventDefault()
@@ -91,6 +94,7 @@ export class Form {
             const emailValid = this.emailCheck()
             const messageValid = this.messageCheck()
             const isValid = firstNameValid && lastNameValid && emailValid && messageValid
+
 
             if (isValid) {
                 const modal = document.querySelector('.modal')
@@ -101,71 +105,24 @@ export class Form {
                 form.style.display = "none"
                 paragraph.textContent = "Votre message a bien été envoyé"
                 modalBody.append(paragraph)
+
+                const firstName = document.querySelector('#first')
+                console.log(firstName.value)
+                const lastName = document.querySelector('#last')
+                console.log(lastName.value)
+                const email = document.querySelector('#email')
+                console.log(email.value)
+                const message = document.querySelector('#message')
+                console.log(message.value)
+
                 form.reset();
 
                 const closeModal = document.querySelector('.close')
                 closeModal.addEventListener('click', () => {
                     this.close()
                     paragraph.remove();
-                    form.reset();
-
                 })
             }
         })
     }
-
-
-
-
-
-    /* 
-    firstNameCheck() {
-        const firstName = document.querySelector('#first')
-        const divParent = firstName.parentNode
-        console.log(divParent)
-        if (firstName.value.length < 2) {
-            divParent.setAttribute('data-error-visible', 'true')
-            divParent.setAttribute('data-error', 'Veuillez entrer votre prénom')
-            return false
-        } else {
-            divParent.setAttribute('data-error-visible', 'false')
-            return true
-        }
-    }
-
-    
-    lastNameCheck() {
-        const lastName = document.querySelector('#last')
-        const divParent = lastName.parentNode
-        if (lastName.value.length < 2) {
-            divParent.setAttribute('data-error-visible', 'true')
-            divParent.setAttribute('data-error', 'Veuillez entrer votre nom')
-            return false
-        } else {
-            divParent.setAttribute('data-error-visible', 'false')
-            return true
-        }
-    }
-
-    submit(e) {
-        e.preventDefault()
-        const isFirstNameValid = this.firstNameCheck()
-        const isValid = isFirstNameValid
-
-        if (isValid) {
-            const modal = document.querySelector('.modal')
-            modal.style.display = 'block'
-            const modalForm = document.querySelector('form')
-            modalForm.style.display = "none";
-            const validMessage = document.createElement('p')
-            validMessage.textContent = 'Votre message a été envoyé'
-            const modalBody = document.querySelector('.modal-body')
-            modalBody.append(validMessage)
-
-            const closeModal = document.querySelector('.close')
-            closeModal.addEventListener('click', () => {
-                this.closeForm()
-            })
-        }
-    } */
 }

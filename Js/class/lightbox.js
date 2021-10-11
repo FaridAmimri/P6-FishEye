@@ -1,8 +1,8 @@
-import { mediaList, mediaDom } from "../photograph.js";
+import { mediaList } from "../photograph.js";
 
 export class Lightbox {
     constructor(listMedia) {
-        this.listMedia = listMedia;
+        this.listMedia = listMedia
         this.onKeyUp = this.onKeyUp.bind(this)
     }
 
