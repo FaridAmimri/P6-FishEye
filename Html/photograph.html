@@ -17,44 +17,46 @@
 </head>
 
 <body>
-    <header>
+    <header role="banner">
         <a href="index.html">
             <img src="../logos/logo.png" alt="FishEye home page">
         </a>
     </header>
 
-    <main>
-        <!-- <div class="photographer">
-                <div class="profil">
-                    <h1>Mimi Keel</h1>
-                    <button class= contact_me>Contactez-moi</button>
-                    <div class="information">
-                        <p class="city">London, UK</p>
-                        <p class="bio">Voir le beau dans le quotidien</p>
-                    </div>
-                    <nav>
-                        <ul>
-                            <li><a><span>#portrait</span></a></li>
-                            <li><a><span>#events</span></a></li>
-                            <li><a><span>#travel</span></a></li>
-                            <li><a><span>#animals</span></a></li>
-                        </ul>
-                    </nav>
+    <main role="main">
+        <section role="list">
+            <!-- <div class="profil">
+                <h1>Mimi Keel</h1>
+                <button class=contact_me>Contactez-moi</button>
+                <div class="information">
+                    <p class="city">London, UK</p>
+                    <p class="bio">Voir le beau dans le quotidien</p>
                 </div>
-                <div class="portrait">
-                    <img src="../Photos/PhotographersIDPhotos/MimiKeel.jpg" alt="">
-                </div>
+                <nav>
+                    <ul>
+                        <li><a><span>#portrait</span></a></li>
+                        <li><a><span>#events</span></a></li>
+                        <li><a><span>#travel</span></a></li>
+                        <li><a><span>#animals</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="portrait">
+                <img src="../Photos/PhotographersIDPhotos/MimiKeel.jpg" alt="">
             </div> -->
-        <!-- <div class="selection">
-            <label for="option-select">Trier par</label>
+        </section>
+
+        <aside role="complementary">
+            <!-- <label for="option-select">Trier par</label>
             <select name="option" id="option-select">
                 <option value="popularity" id="popularity">Popularité</option>
                 <option value="date">Date</option>
                 <option value="title">Titre</option>
-            </select>
-        </div> -->
+            </select> -->
+        </aside>
 
-        <article>
+        <article role="article">
             <!-- <div class="album">
                 <div class="photo">
                     <img src="../Photos/Mimi/Animals_Rainbow.jpg" alt="">
@@ -98,50 +100,50 @@
                         <p><b>12</b><i class="far fa-heart"></i></p>
                     </div>
                 </div>
-            </div> -->
+                </div> -->
             <!-- <div class="totaloflikes">
-                <p>297 081<i class="far fa-heart"></i></p>
-                <p>300€/jour</p>
-            </div> -->
+                    <p>297<i class="far fa-heart"></i></p>
+                    <p>300€/jour</p>
+                </div> -->
             <!-- <div class="lightbox">
-            <button class="lightbox__close"></button>
-            <button class="lightbox__next"></button>
-            <button class="lightbox__prev"></button>
-            <div class="lightbox__container">
-                <img src="" alt="">
-            </div>
-        </div> -->
+                <button class="lightbox__close"></button>
+                <button class="lightbox__next"></button>
+                <button class="lightbox__prev"></button>
+                <div class="lightbox__container">
+                    <img src="" alt="">
+                </div>
+            </div> -->
         </article>
     </main>
 
-    <footer>
+    <footer role="contentinfo">
         <div class="modal" display="none">
             <div class="content">
                 <span class="close"></span>
                 <div class="modal-body"></div>
-                    <form novalidate id="modal-form" action="photograph.html" method="get">
-                        <h1>
-                            <p>Contactez-moi</p>
-                            <p id="photographer"></p>
-                        </h1>
-                        <div class="data-form">
-                            <label>Prénom</label><br>
-                            <input class="text-control" type="text" id="first" name="first" /><br>
-                        </div>
-                        <div class="data-form">
-                            <label>Nom</label><br>
-                            <input class="text-control" type="text" id="last" name="last" /><br>
-                        </div>
-                        <div class="data-form">
-                            <label>E-mail</label><br>
-                            <input class="text-control" type="email" id="email" name="email" /><br>
-                        </div>
-                        <div class="data-form">
-                            <label>Votre message</label><br>
-                            <input class="text-message" type="text" id="message" name="message" /><br>
-                        </div>
-                        <input class="btn-submit" type="submit" class="button" value="Envoyer" />
-                    </form>
+                <form novalidate id="modal-form" action="photograph.html" method="get">
+                    <h1>
+                        <p>Contactez-moi</p>
+                        <p id="photographer"></p>
+                    </h1>
+                    <div class="data-form">
+                        <label>Prénom</label><br>
+                        <input class="text-control" type="text" id="first" name="first" /><br>
+                    </div>
+                    <div class="data-form">
+                        <label>Nom</label><br>
+                        <input class="text-control" type="text" id="last" name="last" /><br>
+                    </div>
+                    <div class="data-form">
+                        <label>E-mail</label><br>
+                        <input class="text-control" type="email" id="email" name="email" /><br>
+                    </div>
+                    <div class="data-form">
+                        <label>Votre message</label><br>
+                        <input class="text-message" type="text" id="message" name="message" /><br>
+                    </div>
+                    <input class="btn-submit" type="submit" class="button" value="Envoyer" />
+                </form>
             </div>
         </div>
     </footer>

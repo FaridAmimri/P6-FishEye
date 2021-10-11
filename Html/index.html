@@ -14,26 +14,31 @@
 </head>
 
 <body>
-    <header>
+    <ul class="skip-links">
+        <li><a href="#nav">Skip to navigation</a></li>
+        <li><a href="#main">Skip to the main content</a></li>
+    </ul>
+    
+    <header role="banner">
         <a href="index.html" class="logo">
             <img src="../logos/logo.png" alt="FishEye home page">
             <h1>Nos photographes</h1>
         </a>
-        <nav aria-label="photographer categories">
+        <nav aria-label="photographer categories" role="navigation">
             <ul>
-                <li><a><span>#Portrait</span></a></li>
-                <li><a><span>#Art</span></a></li>
-                <li><a><span>#Fashion</span></a></li>
-                <li><a><span>#Architecture</span></a></li>
-                <li><a><span>#Travel</span></a></li>
-                <li><a><span>#Sport</span></a></li>
-                <li><a><span>#Animals</span></a></li>
-                <li><a><span>#Event</span></a></li>
+                <li><a class="portrait"><span>#Portrait</span></a></li>
+                <li><a class="art"><span>#Art</span></a></li>
+                <li><a class="fashion"><span>#Fashion</span></a></li>
+                <li><a class="architecture"><span>#Architecture</span></a></li>
+                <li><a class="travel"><span>#Travel</span></a></li>
+                <li><a class="sport"><span>#Sport</span></a></li>
+                <li><a class="animals"><span>#Animals</span></a></li>
+                <li><a class="events"><span>#Events</span></a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
+    <main role="main" id="main">
         <!-- <div class="photographer">
             <a href="#" alt="Mimi Keel">
                 <img src="../Photos/PhotographersIDPhotos/MimiKeel.jpg" alt="">
