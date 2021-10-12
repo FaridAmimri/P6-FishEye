@@ -11,7 +11,7 @@ export function displayLikes() {
     
     display.append(likes);
     
-    document.querySelector('main').append(display);
+    document.querySelector('footer').append(display);
 }
 
 export function displayPrice(price) {
@@ -19,10 +19,10 @@ export function displayPrice(price) {
 
     const money = document.createElement("p");
     money.textContent = ""; 
-    money.textContent = price + "€/jour"; 
+    money.textContent = price + "€ / jour"; 
     money.className = "price";
 
     display.append(money);
 
-    document.querySelector('main').append(display);
+    document.querySelector('footer').append(display);
 }

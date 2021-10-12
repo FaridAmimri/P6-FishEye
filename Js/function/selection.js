@@ -1,6 +1,5 @@
 export function selectionSort() {
-    const container = document.createElement("div");
-    container.className = "selection";
+    const container = document.querySelector("aside");
 
     const select = document.createElement("label");
     select.for = "option-select";

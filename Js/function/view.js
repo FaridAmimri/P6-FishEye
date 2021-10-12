@@ -1,6 +1,5 @@
 export function viewPhotograph(name, id, city, country, tagline, tags, portrait) {
-    const container = document.createElement("div");
-    container.className = "photographer";
+    const container = document.querySelector("section");
 
     const profil = document.createElement("div");
     profil.className = "profil";
@@ -34,13 +33,14 @@ export function viewPhotograph(name, id, city, country, tagline, tags, portrait)
     container.append(profil)
 
     const nav = document.createElement("nav");
+    nav.ariaRoleDescription = "navigation";
     const ul = document.createElement("ul");
 
     for (let i = 0; i < tags.length; i++) {
 
         const li = document.createElement("li");
         const linka = document.createElement("a");
-        linka.innerHTML = tags[i];
+        linka.innerHTML = '#' + tags[i];
         li.append(linka)
         ul.append(li)
     }
