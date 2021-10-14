@@ -9,6 +9,26 @@ body {
   margin: 30px;
 }
 
+.skip-links {
+  /* Accessibility*/
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.skip-links a {
+  position: absolute;
+  top: -3em;
+  background-color: #000;
+  color: #fff;
+  padding: 0.5em 0.75em;
+  font-weight: bold;
+}
+
+.skip-links a:focus {
+  top: 0;
+}
+
 /* header */
 header {
   display: -webkit-box;
@@ -67,6 +87,7 @@ header li {
   font-size: 12px;
   margin-right: 5px;
   margin-bottom: 10px;
+  cursor: pointer;
 }
 
 /* main */
@@ -124,6 +145,7 @@ main li {
   font-size: 12px;
   margin-right: 5px;
   margin-bottom: 10px;
+  cursor: pointer;
 }
 
 .photographer {
