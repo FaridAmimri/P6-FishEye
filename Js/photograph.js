@@ -36,7 +36,7 @@ fetch("./FishEyeData.json")
                 /* display photographers details */
                 activePhotographerData = result.photographers[i];
                 viewPhotograph(result.photographers[i].name, result.photographers[i].id, result.photographers[i].city, result.photographers[i].country, result.photographers[i].tagline, result.photographers[i].tags, result.photographers[i].portrait);
-                
+
                 /* launch modal form onclick */
                 const openModal = document.querySelector('.contact_me')
                 openModal.addEventListener('click', () => {
@@ -73,7 +73,7 @@ fetch("./FishEyeData.json")
         }
 
         let totalLikes = getTotalLikes(mediaList);
-        console.log(totalLikes)
+        totalLikes
         for (let i = 0; i < result.photographers.length; i++) {
             if (result.photographers[i].id === photographerId) {
                 displayLikes();
@@ -85,12 +85,15 @@ fetch("./FishEyeData.json")
         const myLightbox = new Lightbox(mediaList);
         myLightbox.init();
 
-        const mediaDom = document.querySelectorAll('.media');
-        for (let i = 0; i < mediaDom.length; i++) {
-            mediaDom[i].addEventListener('click', () => {
-                myLightbox.open(mediaList[i]);
-            });
+        function initMediaListener() {
+            const mediaDom = document.querySelectorAll('.media');
+            for (let i = 0; i < mediaDom.length; i++) {
+                mediaDom[i].addEventListener('click', () => {
+                    myLightbox.open(mediaList[i]);
+                });
+            }
         }
+        initMediaListener()
 
         /* sorting medias by selected option */
         const select = document.querySelector('#option-select')
@@ -108,6 +111,8 @@ fetch("./FishEyeData.json")
                 for (let i = 0; i < mediaList.length; i++) {
                     mediaList[i].render();
                 }
+                initMediaListener();
+                
             }
             /* select media by date */
             if (e.target.value === 'date') {
@@ -121,6 +126,7 @@ fetch("./FishEyeData.json")
                 for (let i = 0; i < mediaList.length; i++) {
                     mediaList[i].render();
                 }
+                initMediaListener();
             }
             /* select media by title */
             if (e.target.value === 'title') {
@@ -134,6 +140,7 @@ fetch("./FishEyeData.json")
                 for (let i = 0; i < mediaList.length; i++) {
                     mediaList[i].render();
                 }
+                initMediaListener();
             }
         })
     })

@@ -41,6 +41,7 @@ export function viewPhotograph(name, id, city, country, tagline, tags, portrait)
         const li = document.createElement("li");
         const linka = document.createElement("a");
         linka.innerHTML = '#' + tags[i];
+        linka.href = `./index.html?tag=${tags[i]}`
         li.append(linka)
         ul.append(li)
     }
