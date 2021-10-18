@@ -54,15 +54,16 @@ fetch("./FishEyeData.json")
         const param = new URLSearchParams(document.location.search);
         const photographerTag = String(param.get("tag"));
 
-
         for (let i = 0; i < result.photographers.length; i++) {
-            displayPhotographer(result.photographers[i].name, result.photographers[i].id, result.photographers[i].city, result.photographers[i].country, result.photographers[i].tags, result.photographers[i].tagline, result.photographers[i].price, result.photographers[i].portrait);
+
+            if (photographerTag.length === 4) {
+                displayPhotographer(result.photographers[i].name, result.photographers[i].id, result.photographers[i].city, result.photographers[i].country, result.photographers[i].tags, result.photographers[i].tagline, result.photographers[i].price, result.photographers[i].portrait);
+            }
 
             let tagList = result.photographers[i].tags
-            for (let i = 0; i < tagList.length; i++) {
-
-                if (tagList[i] === photographerTag) {
-                    addTagListener
+            for (let j = 0; j < tagList.length; j++) {
+                if (photographerTag === tagList[j]) {
+                    displayPhotographer(result.photographers[i].name, result.photographers[i].id, result.photographers[i].city, result.photographers[i].country, result.photographers[i].tags, result.photographers[i].tagline, result.photographers[i].price, result.photographers[i].portrait);
                 }
             }
         }
