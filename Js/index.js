@@ -37,6 +37,7 @@ function displayPhotographer(name, id, city, country, tags, tagline, price, port
         const li = document.createElement("li")
         const linka = document.createElement("a")
         linka.className = tags[i];
+        linka.href = `./index.html?tag=${tags[i]}`
         linka.innerHTML = '#' + tags[i];
         li.append(linka)
         ul.append(li)
@@ -52,18 +53,21 @@ fetch("./FishEyeData.json")
     .then(result => {
 
         const param = new URLSearchParams(document.location.search);
-        const photographerTag = String(param.get("tag"));
+        const photographerTag = param.get("tag");
 
         for (let i = 0; i < result.photographers.length; i++) {
 
-            if (photographerTag.length === 4) {
+            if (photographerTag === null) {
+                console.log(photographerTag)
                 displayPhotographer(result.photographers[i].name, result.photographers[i].id, result.photographers[i].city, result.photographers[i].country, result.photographers[i].tags, result.photographers[i].tagline, result.photographers[i].price, result.photographers[i].portrait);
-            }
-
-            let tagList = result.photographers[i].tags
-            for (let j = 0; j < tagList.length; j++) {
-                if (photographerTag === tagList[j]) {
-                    displayPhotographer(result.photographers[i].name, result.photographers[i].id, result.photographers[i].city, result.photographers[i].country, result.photographers[i].tags, result.photographers[i].tagline, result.photographers[i].price, result.photographers[i].portrait);
+            } else {
+                // on verifie les tags
+                let tagList = result.photographers[i].tags
+                for (let j = 0; j < tagList.length; j++) {
+                    if (photographerTag === tagList[j]) {
+                        console.log(photographerTag)
+                        displayPhotographer(result.photographers[i].name, result.photographers[i].id, result.photographers[i].city, result.photographers[i].country, result.photographers[i].tags, result.photographers[i].tagline, result.photographers[i].price, result.photographers[i].portrait);
+                    }
                 }
             }
         }

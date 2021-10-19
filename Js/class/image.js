@@ -16,11 +16,11 @@ export class Image {
         const shoot = document.createElement("div");
         shoot.className = "shoot";
        
-        const link = document.createElement("a")
-        const diapo = document.createElement("img");
-        diapo.className = "media";
-        diapo.src = this.image;
-        link.append(diapo)
+        const link = document.createElement("a");
+        const image = document.createElement("img");
+        image.className = "media";
+        image.src = this.image;
+        link.append(image)
         shoot.append(link)
         
         const data = document.createElement("div");

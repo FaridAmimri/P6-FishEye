@@ -16,7 +16,7 @@ export class Video {
         const shoot = document.createElement("div");
         shoot.className = "shoot";
        
-        const link = document.createElement("a")
+        const link = document.createElement("a");
         const video = document.createElement("video");
         video.className = "media";
         video.src = this.video;
