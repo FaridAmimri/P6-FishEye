@@ -23,7 +23,10 @@ body {
         top: 0;
     } 
 }   
-
+li a {
+    text-decoration: none;
+    color: $primarycolor;
+}
 /* header */
 header {
     display: flex;
