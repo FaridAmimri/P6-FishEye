@@ -1,2 +1,2 @@
 # Projet-6-FishEye
-Site Photographes
+Créez un site accessible pour une plateforme de photographes
